@@ -49,12 +49,29 @@ modify SECRET_KEY line to SECRET_KEY = os.environ.get('SECRET_KEY')
 
 Replace DATABASES as
 DATABASES = {
+
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 6. In the terminal, migrate the change by
 python3 manage.py migrate. Check the resource tab in heroku and choose 
 Heroku Postgres then ensure the changes are reflected in the database
+
+7. login to Cloudinary and copy the API Environment variable and paste in env.py and also Config Vars in Heroku.
+
+8. DISABLE_COLLECTSTATIC set to 1 in Config Vars as the initial deployment does not contain static files yet.
+
+9. Add Cloudinary Libraries to installed apps in setting.py.
+   'cloudinary_storage', before 'django.contrib.staticfiles', and 'cloudinary' after it.
+
+10. Set STATICFILES_DIRS, STATICFILES_DIRS, STATIC_ROOT, MEDIA_URL and DEFAULT_FILE_STORAGE in setting.py so that Django can use the directories approproately.
+
+11. Set TEMPLATES_DIR just below BASE_DIR and insert TEMPLATES_DIR in TEMPLATES array
+'DIRS': []
+
+12. Set ALLOWED_HOSTS array as 'tailsontrails.herokuapp.com', 'localhost'
+
+13. Create Procfile
 
 
 
