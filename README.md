@@ -73,6 +73,9 @@ Heroku Postgres then ensure the changes are reflected in the database
 
 13. Create Procfile
 
+14. In the deployment tab in Heroku page, connect to GitHub and search for the repository then Connect.
+  Click on Deploy Branch
+
 
 
 
