@@ -1,6 +1,13 @@
 
 
+## Testing
 
+### Setting up testing environment to point to local development environment after dployment of skelton project
+
+As we were encouraged to have deploy empty project first approach to avoid last minute deployment issue, the testing environment needed to be setup for Django to refer the local Sqlite database..
+This procedure was kindly shared by a cohort student group member.
+
+1.
 
 
 ## Setting up Django environment.
