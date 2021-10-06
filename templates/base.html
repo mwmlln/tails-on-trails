@@ -19,51 +19,58 @@
     <header>
         <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">T<span>ails</span>on<span
-                        class="brand">T</span>rails</span></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Forum</a>
-                    </li>
-                </ul>       
-                <ul class="nav">
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <button type="button" class="btn btn-light">Light</button>
-                    <a class="nav-link btn btn-light" href="#">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link btn btn-info" href="#">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-secondary" href="#">Login</a>
-                </li>
-                {% endif %}    
-            </ul>  
+        <nav class="navbar navbar-expand-lg navbar-light bg-success bg-gradient bg-opacity-50">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">T<span>ails</span>on<span
+                            class="brand">T</span>rails</span></span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Forum</a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-light">Light</button>
+                            <a class="nav-link btn btn-light" href="#">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-info" href="#">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-secondary" href="#">Login</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     </header>
     <main>
         {% block content %}
-        
+
         {% endblock %}
     </main>
-    <footer>
-        
+    <footer class="bg-success bg-gradient bg-opacity-50">
+        <div class="text-center d-inline">
+            <p> Created by m_m</p>
+            <p><a href="https://github.com/" target="_blank" rel="noopener"
+                    aria-label="Open our Github page in a new tab"><i class="fab fa-github"></i></a></p>
+        </div>
     </footer>
+
+    <!-- font awsome script -->
+    <script src="https://kit.fontawesome.com/12c8ab0e8b.js" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
