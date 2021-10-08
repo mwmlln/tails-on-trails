@@ -3,12 +3,14 @@ from .models import Post
 
 
 class TestModels(TestCase):
+    def setUp(self):
+        Post.objects.create(location="Test Forum Post", slug="slug" )
+        Post.objects.create(excerpt="This is test summary")
 
-    def test_status_defaults_to_draft(self):
-        post = Post.objects.create(location='Test Forum Post')
-        self.assertFalse(post.status)
+    def test_posts_creates_correct(self):
 
-    def test_post_string_method_returns_name(self):
-        post = Post.objects.create(location='Test Forum Post')
-        self.assertEqual(str(post), 'Test Forum Post')
+        post1 = Post.objects.get(location="Test Forum Post")
+        self.assertEqual(post1.status, 0)
+        post2 = Post.objects.get(location="This is test summary")
+        self.assertEqual(post2.difficulty_easy, True)
         

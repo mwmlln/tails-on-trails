@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-STATUS = ((0, "Draft"), (1, "Published"))
+STATUS = ((0, "Posted"), (1, "Approved"))
 
 
 class Post(models.Model):
@@ -16,12 +16,12 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    difficulty_hard = models.BooleanField()
-    difficulty_moderate = models.BooleanField()
-    difficulty_easy = models.BooleanField()
-    breed_big = models.BooleanField()
-    breed_mid = models.BooleanField()
-    breed_sml = models.BooleanField()
+    difficulty_hard = models.BooleanField(default=False)
+    difficulty_moderate = models.BooleanField(default=False)
+    difficulty_easy = models.BooleanField(default=False)
+    breed_big = models.BooleanField(default=False)
+    breed_mid = models.BooleanField(default=False)
+    breed_sml = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
