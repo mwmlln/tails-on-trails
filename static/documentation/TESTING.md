@@ -4,8 +4,9 @@
 
 ### Setting up testing environment to point to local development environment after dployment of skelton project
 
-As we were encouraged to have deploy empty project first approach to avoid last minute deployment issue, the testing environment needed to be setup for Django to refer the local Sqlite database..
-This procedure was kindly shared by a cohort student group member, Elaine.
+I have taken deploy empty project first approach as it was encouraged in Code Institute's Blog walkthrough. The main reason for this is to avoid last minute deployment issue. However testign in deployed project throw errors connecting databse. In order to resolve this to accomdate testing I needed to setup of the testing environment for Django to refer the local Sqlite database.
+The procedure for this was kindly shared by a cohort student group member, Elaine.
+Here is the steps taken to enable testing in the development environment.
 
 1. Following lines were added in setting.py and env.py
 
