@@ -2,20 +2,25 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 main {
   flex: 1;
 }
 
-.hero-container {
-  height: 80vh;
-}
 
 .hero-container {
+  height: 80vh;
   background-image: url("https://images.pexels.com/photos/2518862/pexels-photo-2518862.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
+  display: flex;
+  align-items: center;
 }
 
+.hero-text {
+  color: antiquewhite;
+  font-size: 2rem;
+}
