@@ -180,3 +180,5 @@ Heroku Postgres then ensure the changes are reflected in the database
 
 
 Django Secret Key Generator https://miniwebtool.com/django-secret-key-generator/
+
+Solution for Login_required error  https://www.buzzphp.com/posts/login-required-decorator-gives-object-has-no-attribute-user-error

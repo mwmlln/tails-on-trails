@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from .models import Post
 
@@ -18,6 +19,7 @@ class PostList(generic.ListView):
 
 class PostDetail(View):
     """Only available for logged-in users"""
+    @method_decorator(login_required, name='home')
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
