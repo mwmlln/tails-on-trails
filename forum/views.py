@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.urls import reverse_lazy
 from django.views import generic, View
+from django.views.generic.edit import CreateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -87,3 +89,13 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+class PostCreate(CreateView):
+    template_name = 'create_post.html'
+    model = Post
+    fields = [
+        'location', 
+        'excerpt', 
+        'featured_image',
+        'content',
+    ]
+    success_url = reverse_lazy('posts')
