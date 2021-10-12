@@ -24,3 +24,9 @@ main {
   color: antiquewhite;
   font-size: 2rem;
 }
+
+.btn-like {
+  color: #E84610;
+  border: none;
+  background: transparent;
+}

@@ -9,9 +9,9 @@
             <div class="col-12 col-md-6 mt-2">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="default image" width="100%">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
+                <img src=" {{ post.featured_image.url }}" alt="image of posted location" width="100%">
                 {% endif %}
             </div>
 
@@ -109,11 +109,28 @@
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
-                <div class="row">
+                <div class="row text-nowrap">
 
-                    <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+                    <div class="col-2">
+                        <strong>
+                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST" >
+                                {% csrf_token %}
+                                {% if liked %}
+
+                                <button type="submit" name="forumpost_id" value="{{post.slug}}" class="btn-like">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+
+                                {% else %}
+                                <button type="submit" name="forumpost_id" value="{{post.slug}}" class="btn-like">
+                                    <i class="far fa-heart"></i>
+                                </button>
+
+                                {% endif %}
+
+                            </form>
+                            <span class="text-secondary">{{ post.number_of_likes }} </span>
+                        </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
