@@ -13,3 +13,8 @@ class TestViews(TestCase):
         response = self.client.get(reverse('posts'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'post_list.html')
+
+    def test_get_post_detail(self):
+        response = self.client.get(reverse('post_detail'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'post_detail.html')
