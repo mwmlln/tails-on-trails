@@ -7,9 +7,9 @@
 
 {% block content %}
 
-<div class="containter">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2 px-0">
+<div class="containter ms-2">
+  <div class="col-12 col-md-8 mt-3 offset-md-2 col-lg-6 offset-lg-3">
+    <div class="row px-0">
 
       <h1>{% trans "Sign In" %}</h1>
 
@@ -17,10 +17,8 @@
       <p>{% blocktrans %}If you have not created an account yet, then please
         <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2 px-0">
+    <div class="row px-0">
 
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
@@ -30,7 +28,6 @@
         {% endif %}
         <button class="btn btn-success bg-gradient" type="submit">{% trans "Sign In" %}</button>
       </form>
-
     </div>
   </div>
 </div>
