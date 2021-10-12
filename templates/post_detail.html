@@ -5,12 +5,7 @@
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.location }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-            </div>
+
             <div class="col-12 col-md-6 mt-2">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
@@ -19,6 +14,88 @@
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
+
+            <div class="col-md-6 ps-3">
+                <!-- Post title goes in these h1 tags -->
+                <h1 class="post-title">{{ post.location }}</h1>
+                <!-- Post author goes before the | the post's created date goes after -->
+                <p class="post-subtitle">Posted by: {{ post.author }} | {{ post.created_on }}</p>
+                <p>Difficulty:
+                    {% if  post.difficulty_hard %}
+                    <span>
+                        Hard
+                        <i class="far fa-check-square"></i>
+                    </span>
+                    {% else %}
+                    <span class="text-muted">
+                        Hard
+                        <i class="far fa-square"></i>
+                    </span>
+                    {% endif %}
+                     |
+                    {% if  post.difficulty_moderate %}
+                    <span>
+                        Moderate
+                        <i class="far fa-check-square"></i>
+                    </span>
+                    {% else %}
+                    <span class="text-muted">
+                        Moderate
+                        <i class="far fa-square"></i>
+                    </span>
+                    {% endif %}
+                     |
+                    {% if  post.difficulty_easy %}
+                    <span>
+                        Easy
+                        <i class="far fa-check-square"></i>
+                    </span>
+                    {% else %}
+                    <span class="text-muted">
+                        Easy
+                        <i class="far fa-square"></i>
+                    </span>
+                    {% endif %}
+                </p>
+                <p>Suitable dog size:
+                    {% if  post.breed_big %}
+                    <span>
+                        BIG
+                        <i class="far fa-check-square"></i>
+                    </span>
+                    {% else %}
+                    <span class="text-muted">
+                        BIG
+                        <i class="far fa-square"></i>
+                    </span>
+                    {% endif %}
+                     |
+                    {% if  post.breed_mid %}
+                    <span>
+                        Medium
+                        <i class="far fa-check-square"></i>
+                    </span>
+                    {% else %}
+                    <span class="text-muted">
+                        Medium
+                        <i class="far fa-square"></i>
+                    </span>
+                    {% endif %}
+                     |
+                    {% if  post.breed_sml %}
+                    <span>
+                        Small
+                        <i class="far fa-check-square"></i>
+                    </span>
+                    {% else %}
+                    <span class="text-muted">
+                        Small
+                        <i class="far fa-square"></i>
+                    </span>
+                    {% endif %}
+                </p>
+            </div>
+
         </div>
     </div>
 </div>
@@ -84,7 +161,7 @@
                     Your comment is awaiting approval
                 </div>
                 {% else %}
-                
+
 
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
