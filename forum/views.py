@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from .forms import CommentForm, CreatePostForm
+from . import forms
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic.edit import CreateView
@@ -6,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+
 
 
 def index(request):
@@ -88,14 +90,40 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+@login_required
+def create_post(request):
+    create_post_form = forms.CreatePostForm(request.POST or None)
+    if create_post_form.is_valid():
+        create_post_form.instance.author = request.user
+        create_post_form.save()
+        return redirect('posts')
+    return render(
+        request, 'post_create.html', context= {
+        'create_post_form': create_post_form,
+    })
 
-class PostCreate(CreateView):
-    template_name = 'create_post.html'
-    model = Post
-    fields = [
-        'location', 
-        'excerpt', 
-        'featured_image',
-        'content',
-    ]
-    success_url = reverse_lazy('posts')
+
+# class PostCreate(CreateView):
+#     template_name = 'post_create.html'
+#     model = Post
+#     fields = [
+#         'title',
+#         'location', 
+#         'excerpt', 
+#         'featured_image',
+#         'content',
+#     ]
+#     prepopulated_fields = {'slug': ('title',)}
+#     if 
+#     success_url = reverse_lazy('posts')
+
+
+    
+
+
+# @login_required
+# def profile_create(request):
+#     form = forms.ProfileModelForm()
+#     return render(
+#         request, profile.html, context= { form:form }
+#         )

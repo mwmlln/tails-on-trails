@@ -7,6 +7,7 @@ STATUS = ((0, "Posted"), (1, "Approved"))
 
 
 class Post(models.Model):
+    title = models.CharField(max_length=200, unique=True)
     location = models.CharField(max_length=50)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -53,5 +54,10 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
-
-        
+class Profile(models.Model):
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    featured_image = CloudinaryField('image', default='placeholder')
+    about_me = models.TextField(max_length=300, blank=True)
+    about_dog = models.TextField(max_length=300, blank=True)
+    favorite_location = models.TextField(max_length=100, blank=True)
+    

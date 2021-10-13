@@ -1,13 +1,19 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment,Profile
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
 
-    list_display = ('location', 'slug', 'status', 'created_on')
+    list_display = ('title', 'location', 'slug', 'status', 'created_on')
     search_fields = ['location', 'content']
-    prepopulated_fields = {'slug': ('location',)}
+    prepopulated_fields = {'slug': ('title',)}
     list_filter = ('status', 'created_on')
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+
+    list_display = ('username', 'about_me', 'about_dog', 'featured_image', 'favorite_location')
 
 
 @admin.register(Comment)
