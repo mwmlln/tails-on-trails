@@ -12,7 +12,7 @@ main {
 
 .hero-container {
   height: 80vh;
-  background-image: url("https://images.pexels.com/photos/2518862/pexels-photo-2518862.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: url("/static/images/dog_in_field.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
