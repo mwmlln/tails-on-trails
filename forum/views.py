@@ -94,6 +94,7 @@ class PostLike(View):
 def create_post(request):
     create_post_form = forms.CreatePostForm(request.POST or None)
     if create_post_form.is_valid():
+        create_post_form.instance.slug = ('title',)
         create_post_form.instance.author = request.user
         create_post_form.save()
         return redirect('posts')

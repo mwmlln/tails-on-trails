@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify 
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
@@ -31,8 +32,12 @@ class Post(models.Model):
     class Meta:
         ordering = ["-created_on"]
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)    
+
     def __str__(self):
-        return self.location
+        return self.title
 
     def number_of_likes(self):
         return self.likes.count()

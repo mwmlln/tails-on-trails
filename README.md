@@ -182,3 +182,5 @@ Heroku Postgres then ensure the changes are reflected in the database
 Django Secret Key Generator https://miniwebtool.com/django-secret-key-generator/
 
 Solution for Login_required error  https://www.buzzphp.com/posts/login-required-decorator-gives-object-has-no-attribute-user-error
+
+Solution for auto-generating slug field  (stack overflow)[https://stackoverflow.com/questions/50436658/how-to-auto-generate-slug-from-my-album-model-in-django-2-0-4]
