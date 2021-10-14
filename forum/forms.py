@@ -19,7 +19,7 @@ class CreatePostForm(forms.ModelForm):
         'breed_big', 'breed_mid','breed_sml' )
     
 
-# class ProfileModelForm(forms.ModelForm):
+# class ProfileModelForm(forms.ModelForm):  
 
 #     class Mata:
 #         model = Profile

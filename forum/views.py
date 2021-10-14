@@ -6,7 +6,7 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from .models import Post
 
 
@@ -94,7 +94,6 @@ class PostLike(View):
 def create_post(request):
     create_post_form = forms.CreatePostForm(request.POST or None)
     if create_post_form.is_valid():
-        create_post_form.instance.slug = ('title',)
         create_post_form.instance.author = request.user
         create_post_form.save()
         return redirect('posts')
@@ -103,23 +102,19 @@ def create_post(request):
         'create_post_form': create_post_form,
     })
 
-
-# class PostCreate(CreateView):
-#     template_name = 'post_create.html'
-#     model = Post
-#     fields = [
-#         'title',
-#         'location', 
-#         'excerpt', 
-#         'featured_image',
-#         'content',
-#     ]
-#     prepopulated_fields = {'slug': ('title',)}
-#     if 
-#     success_url = reverse_lazy('posts')
-
-
-    
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if Post.author != request.user.id:
+        raise Http404
+    edit_post_form = forms.CreatePostForm(request.POST or None, instance=Post)
+    if edit_post_form.is_valid():
+        edit_post_form.save()
+        return redirect('posts')
+    return render(
+        request, 'post_edit.html', context= {
+        'edit_post_form': edit_post_form,
+        'slug': slug,
+    })
 
 
 # @login_required
