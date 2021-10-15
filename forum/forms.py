@@ -17,7 +17,12 @@ class CreatePostForm(forms.ModelForm):
         'featured_image', 'content','difficulty_hard',
         'difficulty_moderate','difficulty_easy',
         'breed_big', 'breed_mid','breed_sml' )
-    
+
+
+class DeletePostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = []
 
 # class CreateProfileForm(forms.ModelForm):  
 

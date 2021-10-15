@@ -103,10 +103,10 @@ def create_post(request):
                 context= {'create_post_form': create_post_form,}
                 )
 
+
 def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.user != post.author:
-        print("404 error")
         raise Http404
     edit_post_form = forms.CreatePostForm(request.POST or None, instance=post)
     if edit_post_form.is_valid():
@@ -118,6 +118,21 @@ def edit_post(request, slug):
                 'slug': slug},
                 )
 
+
+def delete_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.user != post.author:
+        raise Http404
+    delete_post_form = forms.DeletePostForm(request.POST or None)
+    if delete_post_form.is_valid(): # checking csrf token
+        post.delete()
+        # messages(request, 'Your post is deleted')
+        return redirect('posts')
+    return render(
+                request, 'post_delete.html', context={
+                'delete_post_form': delete_post_form,
+                }
+            )
 
 
 
