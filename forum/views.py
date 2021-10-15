@@ -3,7 +3,7 @@ from .forms import CommentForm, CreatePostForm
 from . import forms
 from django.urls import reverse_lazy
 from django.views import generic, View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
@@ -92,34 +92,46 @@ class PostLike(View):
 
 @login_required
 def create_post(request):
-    create_post_form = forms.CreatePostForm(request.POST or None)
+    create_post_form = forms.CreatePostForm(request.POST or None, request.FILES)
     if create_post_form.is_valid():
         create_post_form.instance.author = request.user
         create_post_form.save()
         return redirect('posts')
     return render(
-        request, 'post_create.html', context= {
-        'create_post_form': create_post_form,
-    })
+                request, 
+                'post_create.html', 
+                context= {'create_post_form': create_post_form,}
+                )
 
 def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    if Post.author != request.user.id:
+    if request.user != post.author:
+        print("404 error")
         raise Http404
-    edit_post_form = forms.CreatePostForm(request.POST or None, instance=Post)
+    edit_post_form = forms.CreatePostForm(request.POST or None, instance=post)
     if edit_post_form.is_valid():
         edit_post_form.save()
         return redirect('posts')
     return render(
-        request, 'post_edit.html', context= {
-        'edit_post_form': edit_post_form,
-        'slug': slug,
-    })
+                request, 'post_edit.html', 
+                context= {'edit_post_form': edit_post_form,
+                'slug': slug},
+                )
+
+
 
 
 # @login_required
-# def profile_create(request):
-#     form = forms.ProfileModelForm()
+# def create_profile(request):
+#     create_profile_form = forms.CreateProfileForm(request.POST or None)
+#     if Profile.username != request.user.id:
+#         raise Http404
+#     if create_profile_form.is_valid():
+#         create_profile_form.instance.author = request.user
+#         create_profile_form.save()
+#         return redirect('posts')
 #     return render(
-#         request, profile.html, context= { form:form }
-#         )
+#         request, 'profile_create.html', context= {
+#         'create_post_form': create_post_form,
+#     })
+        
