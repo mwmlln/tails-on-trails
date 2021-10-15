@@ -101,6 +101,18 @@ This site's use is mainly intended for registered users however unregistered use
   [Link to the automated testing document](static/documentation/TESTING.md)
 
 
+
+### Errors encountered during development
+
+* Editing post page not displaying:
+  The links to edit post page was added in the forum posts and made only visible for the post author, howoever clicking the link threw 404 error.
+  Issue was caused by request user and author not matching, resulting the Http404 raised in the views.py.
+  John in Tutor support in Code Institute helped me tackle this issue and suggested few ways to narrow down the cause and approaches to fix it. The successful attempt was to place resuest.user first in the if statement. Here is the problem part of the code, commentd out part shown unsuccessful attempt and final solution which I probably would never have come up by myself.
+  (Post.author and request.user not matching error)[static/documentation/ss/404error_with_request_user.png]
+
+
+
+
 ## Setting up Django environment.
 
 1. pip3 install django gunicorn   
@@ -183,4 +195,4 @@ Django Secret Key Generator https://miniwebtool.com/django-secret-key-generator/
 
 Solution for Login_required error  https://www.buzzphp.com/posts/login-required-decorator-gives-object-has-no-attribute-user-error
 
-Solution for auto-generating slug field  (stack overflow)[https://stackoverflow.com/questions/50436658/how-to-auto-generate-slug-from-my-album-model-in-django-2-0-4]
+Solution for auto-generating slug field  [stack overflow](https://stackoverflow.com/questions/50436658/how-to-auto-generate-slug-from-my-album-model-in-django-2-0-4)
