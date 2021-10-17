@@ -151,13 +151,16 @@ def edit_profile(request):
                                             request.POST or None, 
                                             request.FILES or None,
                                             instance=request.user)
+    print(f"request.user:{request.user}")
+    print(f"request.user.id:{request.user.id}")
     if edit_profile_form.is_valid():
         messages.success(request, 'Your Profile is successfully updated.')
         edit_profile_form.save()
         return redirect('posts')
     return render(
-                request, 'profile_edit.html', context={
-                'edit_profile_form': edit_profile_form,
-                }
+                request, 
+                'profile_edit.html', 
+                context={'edit_profile_form': edit_profile_form,
+                'user_id':request.user.id}
             )
 

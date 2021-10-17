@@ -18,6 +18,7 @@ main {
   background-position: bottom center;
   display: flex;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .hero-text {
@@ -29,4 +30,9 @@ main {
   color: #E84610;
   border: none;
   background: transparent;
+}
+
+.image-container {
+  max-height: 350px;
+  overflow: hidden;
 }

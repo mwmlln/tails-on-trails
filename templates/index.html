@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row hero-container">
         <div class="hero-text align-middle ms-3">
-            <h2>Find your ideal nature trail</h2>
+            <div class="display-4 fw-bold">Find your ideal nature trail</div>
             <p>with man's best friend</p>
         </div>
     </div>
@@ -13,13 +13,22 @@
 <section>
     <h1 class="text-center mt-3">Dog friendly nature trails in Ireland</h1>
 
-    <div class="text-center">
-        <p>This site is created to share the information about dog friendly nature walks</p>
+    <div class="text-center m-5">
+        <h5>Welcome to Tails on Trails, where you can share your experience on dog-friendly nature trails in Ireland.
+        </h5>
+        <p>This site is created to share the information about dog friendly nature walks between the registered users.</p>
+        <p>Are you looking for an idea for your next adventurous day out or want to share your experience on a walk with
+            your dog?
+            You can simply view someone’s post to get an idea for next day out or share your experience with other dog
+            lovers.
+            You can also communicate with other registered users by leaving a comment or giving them your Likes.
+            Let’s explore the wonderful nature trails around us.
+        </p>
 
 
         <a class="btn btn-success btn-lg bg-gradient mb-5" href="{% url 'posts' %}" role="button">Posts on Trails</a>
     </div>
-    
+
 </section>
 
 {% endblock %}
