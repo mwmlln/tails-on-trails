@@ -20,10 +20,13 @@
 
             <div class="col-md-6 ps-3">
                 <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.location }}</h1>
+                <h1 class="post-title">{{ post.title }}</h1>
+                <!-- Post title goes in these h1 tags -->
+                <h3 class="post-title">{{ post.location }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">Posted by: {{ post.author }} <a href="{% url 'profile' post.author
-                     %}">View Profile</a>| {{ post.created_on }}</p>
+                <p class="post-subtitle">Posted by: {{ post.author }} <a href="{% url 'profile' post.author_id
+                     %}">View Profile</a> </p>
+                     <p>Created :{{ post.created_on }}</p>
                 <p>Difficulty:
                     {% if  post.difficulty_hard %}
                     <span>
