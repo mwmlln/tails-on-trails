@@ -41,6 +41,9 @@
                                     <a class="nav-link btn btn-light me-3" href="{% url 'create_post' %}">Create a Post</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="btn btn-outline-primary me-3" href="{% url 'profile_edit' %}">{{user.username|title}}</a>
+                                  </li>
+                                <li class="nav-item">
                                     <a class="nav-link btn btn-info" href="{% url 'account_logout' %}">Logout</a>
                                 </li>
                                 {% else %}

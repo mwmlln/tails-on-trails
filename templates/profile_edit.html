@@ -3,13 +3,14 @@
 {% block content %}
 
 <div class="col col-md-8 offset-md-2 mt-5">
-    <h2>Create a Post</h2>
+    <h2>Edit your Profile</h2>
+    <p>{{user.username|title}}'s Profile</p>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ create_post_form.as_p }}
+    {{ edit_profile_form.as_p }}
 
-    <input type="submit" value="Create" class="mb-3">
+
+    <input type="submit" value="Update" class="mb-3">
 </form>
 </div>
-
 {% endblock %}

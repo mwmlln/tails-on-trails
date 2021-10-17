@@ -1,4 +1,5 @@
 from .models import Post, Comment, Profile
+from django.contrib.auth.models import User
 from django import forms
 
 
@@ -24,8 +25,22 @@ class DeletePostForm(forms.ModelForm):
         model = Post
         fields = []
 
-# class CreateProfileForm(forms.ModelForm):  
 
-#     class Mata:
-#         model = Profile
-#         fields = '__all__'
+
+class ProfileForm(forms.ModelForm):  
+
+    class Mata:
+        model = Profile
+        fields = '__all__'
+
+
+class ProfileEditForm(forms.ModelForm):
+
+    featured_image = forms.FileField(label='Image')
+    about_me = forms.CharField(label='About Me:')
+    about_dog = forms.CharField(label='About My Dog(s):')
+    favorite_location = forms.CharField(label='My Favorite Location:', max_length=300)
+
+    class Meta:
+        model = Profile
+        fields = ('featured_image','about_me','about_dog', 'favorite_location')

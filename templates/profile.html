@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col col-md-8 offset-md-2 mt-5">
+    <h2>Edit your Profile</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ edit_post_form.as_p }}
+
+    {% if profile.user.id == user.id %}
+    <div>
+        <a href="{% url 'post_edit' post.slug %}">Edit</a>
+    </div>
+    {% endif %}
+
+    <input type="submit" value="Update" class="mb-3">
+</form>
+</div>
+{% endblock %}

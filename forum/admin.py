@@ -13,7 +13,7 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
 
-    list_display = ('username', 'about_me', 'about_dog', 'featured_image', 'favorite_location')
+    list_display = ('user', 'about_me', 'about_dog', 'featured_image', 'favorite_location')
 
 
 @admin.register(Comment)

@@ -3,17 +3,18 @@ from .forms import CommentForm, CreatePostForm
 from . import forms
 from django.urls import reverse_lazy
 from django.views import generic, View
-from django.views.generic.edit import CreateView, DeleteView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
-from .models import Post
-
+from django.contrib import messages
+from django.contrib.auth.models import User
+from .models import Post, Profile
 
 
 def index(request):
     """ Returns index.html """
     return render(request, 'index.html')
+
 
 
 class PostList(generic.ListView):
@@ -135,18 +136,28 @@ def delete_post(request, slug):
             )
 
 
+def profile(request, user):
+	profile_form = ProfileForm(instance=request.user.profile)
+	return render(
+                request=request, 
+                template_name="profile.html", 
+                context={"user":request.user, "profile_form":profile_form })
 
-# @login_required
-# def create_profile(request):
-#     create_profile_form = forms.CreateProfileForm(request.POST or None)
-#     if Profile.username != request.user.id:
-#         raise Http404
-#     if create_profile_form.is_valid():
-#         create_profile_form.instance.author = request.user
-#         create_profile_form.save()
-#         return redirect('posts')
-#     return render(
-#         request, 'profile_create.html', context= {
-#         'create_post_form': create_post_form,
-#     })
-        
+
+
+@login_required
+def edit_profile(request):
+    edit_profile_form = forms.ProfileEditForm(
+                                            request.POST or None, 
+                                            request.FILES or None,
+                                            instance=request.user)
+    if edit_profile_form.is_valid():
+        messages.success(request, 'Your Profile is successfully updated.')
+        edit_profile_form.save()
+        return redirect('posts')
+    return render(
+                request, 'profile_edit.html', context={
+                'edit_profile_form': edit_profile_form,
+                }
+            )
+
