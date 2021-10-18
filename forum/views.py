@@ -96,7 +96,7 @@ class PostLike(View):
 
 @login_required
 def create_post(request):
-    create_post_form = forms.CreatePostForm(request.POST or None, request.FILES)
+    create_post_form = CreatePostForm(request.POST or None, request.FILES)
     if create_post_form.is_valid():
         create_post_form.instance.author = request.user
         create_post_form.save()
