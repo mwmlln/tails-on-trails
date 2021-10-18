@@ -145,7 +145,7 @@ def edit_profile(request):
     profile = get_object_or_404(Profile, user=request.user)
 
     if request.method == 'POST':
-        form = ProfileEditForm(request.POST, instance=profile)
+        form = ProfileEditForm(request.POST or None, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
