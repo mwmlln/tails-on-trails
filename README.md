@@ -110,6 +110,8 @@ This site's use is mainly intended for registered users however unregistered use
   John in Tutor support in Code Institute helped me tackle this issue and suggested few ways to narrow down the cause and approaches to fix it. The successful attempt was to place resuest.user first in the if statement. Here is the problem part of the code, commentd out part shown unsuccessful attempt and final solution which I probably would never have come up by myself.
   (Post.author and request.user not matching error)[static/documentation/ss/404error_with_request_user.png]
 
+* Updating profile page failed to retrieve user instance and update the records.
+  I managed to display profile editing page however updating the profile or retrieving the existing profile record was not successful. After contacting the Code Institute’s tutor support, Fatima assisted me to change the function views to different approach which is to use if statement for method==POST and else. This approach successfully retried the existing user profile record and update it as entered in the form.
 
 
 

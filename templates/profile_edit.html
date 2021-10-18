@@ -7,7 +7,7 @@
     <p>{{user.username|title}}'s Profile</p>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ edit_profile_form.as_p }}
+    {{ form.as_p }}
 
 
     <input type="submit" value="Update" class="btn btn-success btn-lg bg-gradient mb-3">

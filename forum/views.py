@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from .forms import CommentForm, CreatePostForm
-from . import forms
+from .forms import CommentForm, CreatePostForm, ProfileEditForm
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
@@ -15,6 +14,10 @@ def index(request):
     """ Returns index.html """
     return render(request, 'index.html')
 
+
+def about(request):
+    """ Displays about.html """
+    return render(request, 'about.html')
 
 
 class PostList(generic.ListView):
@@ -136,31 +139,49 @@ def delete_post(request, slug):
             )
 
 
-def profile(request, user):
-	profile_form = ProfileForm(instance=request.user.profile)
-	return render(
-                request=request, 
-                template_name="profile.html", 
-                context={"user":request.user, "profile_form":profile_form })
-
-
-
 @login_required
 def edit_profile(request):
-    edit_profile_form = forms.ProfileEditForm(
-                                            request.POST or None, 
-                                            request.FILES or None,
-                                            instance=request.user)
-    print(f"request.user:{request.user}")
-    print(f"request.user.id:{request.user.id}")
-    if edit_profile_form.is_valid():
-        messages.success(request, 'Your Profile is successfully updated.')
-        edit_profile_form.save()
-        return redirect('posts')
-    return render(
-                request, 
-                'profile_edit.html', 
-                context={'edit_profile_form': edit_profile_form,
-                'user_id':request.user.id}
-            )
+    """ Display the user's profile. """
+    profile = get_object_or_404(Profile, user=request.user)
+
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully')
+            return redirect('posts')
+        else:
+            messages.error(request,
+                           ('Update failed. Please ensure '
+                            'the form is valid.'))
+    else:
+        form = ProfileEditForm(instance=profile)
+    template = 'profile_edit.html'
+    context = {'form': form,}
+
+    return render(request, template, context)
+    
+    # profile = get_object_or_404(Profile, user=request.user)
+    # if request.method == 'POST':
+    #     form = ProfileEditForm(request.POST, instance=profile)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('posts')
+    # return render(
+    #             request, 
+    #             'profile_edit.html', 
+    #             context={'form': form
+    #             })
+
+
+# def profile(request):
+#     """
+#     View the profile of post author
+#     """
+# 	profile_form = ProfileForm(instance=Post.author)
+# 	return render(
+#                 request=request, 
+#                 template_name="profile.html", 
+#                 context={"user":request.user.username, "profile_form":profile_form })
+
 
