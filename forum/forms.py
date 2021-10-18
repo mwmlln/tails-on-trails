@@ -35,10 +35,10 @@ class ProfileForm(forms.ModelForm):
 
 class ProfileEditForm(forms.ModelForm):
 
-    # featured_image = forms.FileField(label='Image')
-    # about_me = forms.CharField(label='About Me:')
-    # about_dog = forms.CharField(label='About My Dog(s):')
-    # favorite_location = forms.CharField(label='My Favorite Location:', max_length=300)
+    featured_image = forms.FileField(label='Image')
+    about_me = forms.CharField(label='About Me:')
+    about_dog = forms.CharField(label='About My Dog(s):')
+    favorite_location = forms.CharField(label='My Favorite Location:', max_length=300)
 
     class Meta:
         model = Profile

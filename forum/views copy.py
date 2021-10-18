@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from .forms import CommentForm, CreatePostForm, ProfileEditForm
+from .forms import CommentForm, CreatePostForm
+from . import forms
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
@@ -141,44 +142,27 @@ def delete_post(request, slug):
 
 @login_required
 def edit_profile(request):
-    """ Display the user's profile. """
     profile = get_object_or_404(Profile, user=request.user)
-
     if request.method == 'POST':
-        form = ProfileEditForm(request.POST or None, request.FILES, instance=profile)
+        form = ProfileEditForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully')
             return redirect('posts')
-        else:
-            messages.error(request,
-                           ('Update failed. Please ensure '
-                            'the form is valid.'))
-    else:
-        form = ProfileEditForm(instance=profile)
-    template = 'profile_edit.html'
-    context = {'form': form,}
-
-    return render(request, template, context)
-    
-
-class ProfileList(generic.ListView):
-    model = Profile
-    queryset = Profile.objects.all()
-    template_name = "profile.html"
-    paginate_by = 6
+    return render(
+                request, 
+                'profile_edit.html', 
+                context={'form': form
+                })
 
 
-
-# def profile(request):
-#     """
-#     View the profile of post author
-#     """
-
-# 	profile_form = ProfileForm(instance=Post.author)
-# 	return render(
-#                 request=request, 
-#                 template_name="profile.html", 
-#                 context={"user":request.user.username, "profile_form":profile_form })
+def profile(request):
+    """
+    View the profile of post author
+    """
+	profile_form = ProfileForm(instance=Post.author)
+	return render(
+                request=request, 
+                template_name="profile.html", 
+                context={"user":request.user.username, "profile_form":profile_form })
 
 
