@@ -226,11 +226,17 @@ Heroku Postgres then ensure the changes are reflected in the database
 
 * Contents
 
+* Coding
+  
+  [Django documentation](https://docs.djangoproject.com/en/3.2/)
+
   [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) 
 
   [Solution for Login_required error](https://www.buzzphp.com/posts/login-required-decorator-gives-object-has-no-attribute-user-error)
 
   Solution for auto-generating slug field  [stack overflow](https://stackoverflow.com/questions/50436658/how-to-auto-generate-slug-from-my-album-model-in-django-2-0-4)
+
+  Solution for applying login_required to ListView [stack overflow](https://stackoverflow.com/questions/10275164/django-generic-views-using-decorator-login-required)
 
 
 * Images 

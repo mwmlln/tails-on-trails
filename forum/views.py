@@ -3,6 +3,7 @@ from .forms import CommentForm, CreatePostForm, ProfileEditForm
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
@@ -162,7 +163,7 @@ def edit_profile(request):
     return render(request, template, context)
     
 
-class ProfileList(generic.ListView):
+class ProfileList(LoginRequiredMixin, generic.ListView):
     model = Profile
     queryset = Profile.objects.all()
     template_name = "profile.html"
@@ -181,4 +182,19 @@ class ProfileList(generic.ListView):
 #                 template_name="profile.html", 
 #                 context={"user":request.user.username, "profile_form":profile_form })
 
+class ProfileDetail(View):
+    """Only available for logged-in users"""
+    @method_decorator(login_required, name='home')
+    def get(self, request, username, *args, **kwargs):
+        queryset = Profile.objects.all()
+        post = get_object_or_404(Post, autor_id=autor_id)
+        profile = get_object_or_404(queryset, user=post.autor.username)
+
+        return render(
+            request,
+            "profile_detail.html",
+            {
+                "profile": profile,
+            },
+        )
 
