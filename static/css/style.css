@@ -86,11 +86,13 @@ footer{
   flex-wrap: nowrap;
 }
 
-.create-post {
-  min-width: 250px;
-}
 
 .create-label {
-  min-width: 20vw;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.create-btn {
+  width: 100%;
 }
 

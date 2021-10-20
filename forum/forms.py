@@ -15,11 +15,13 @@ class CreatePostForm(forms.ModelForm):
                             label='Post Title',
                             widget=forms.TextInput(attrs={
                                 'placeholder':
-                                'Your post title here',
-                                'class': 'create-post'
+                                'Your unique post title',
                                 },))
     location = forms.CharField(label='Location')
-    excerpt = forms.CharField(label='Summary of your post', widget=forms.Textarea)
+    excerpt = forms.CharField(
+                            label='Summary of your post', 
+                            widget=forms.Textarea, 
+                            required=False)
     content = forms.CharField(label='Post Content', widget=forms.Textarea)
     difficulty_hard = forms.BooleanField(label='Hard', required=False )
     difficulty_moderate = forms.BooleanField(label='Moderate', required=False)
