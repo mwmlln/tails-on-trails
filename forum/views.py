@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from .forms import CommentForm, CreatePostForm, ProfileEditForm, ProfileForm
+from .forms import CommentForm, CreatePostForm, EditPostForm, DeletePostForm
+from .forms import ProfileEditForm, ProfileForm
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
@@ -110,10 +111,11 @@ def create_post(request):
 
 
 def edit_post(request, slug):
+    """Edit requested post"""
     post = get_object_or_404(Post, slug=slug)
     if request.user != post.author:
         raise Http404
-    edit_post_form = forms.CreatePostForm(request.POST or None, instance=post)
+    edit_post_form = EditPostForm(request.POST or None, instance=post)
     if edit_post_form.is_valid():
         edit_post_form.save()
         return redirect('posts')
@@ -128,7 +130,7 @@ def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.user != post.author:
         raise Http404
-    delete_post_form = forms.DeletePostForm(request.POST or None)
+    delete_post_form = DeletePostForm(request.POST or None)
     if delete_post_form.is_valid(): # checking csrf token
         post.delete()
         # messages(request, 'Your post is deleted')

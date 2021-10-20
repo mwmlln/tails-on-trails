@@ -48,6 +48,29 @@ class CreatePostForm(forms.ModelForm):
         return title
 
 
+class EditPostForm(forms.ModelForm):
+    title = forms.CharField(label='Post Title')
+    location = forms.CharField(label='Location')
+    excerpt = forms.CharField(
+                            label='Summary of your post', 
+                            widget=forms.Textarea, 
+                            required=False)
+    content = forms.CharField(label='Post Content', widget=forms.Textarea)
+    difficulty_hard = forms.BooleanField(label='Hard', required=False )
+    difficulty_moderate = forms.BooleanField(label='Moderate', required=False)
+    difficulty_easy = forms.BooleanField(label='Easy', required=False)
+    breed_big = forms.BooleanField(label='Big', required=False)
+    breed_mid = forms.BooleanField(label='Medium', required=False)
+    breed_sml = forms.BooleanField(label='Small', required=False)
+
+    class Meta:
+        model = Post
+        fields = ('title', 'location', 'excerpt',
+        'featured_image', 'content','difficulty_hard',
+        'difficulty_moderate','difficulty_easy',
+        'breed_big', 'breed_mid','breed_sml' )
+
+
 class DeletePostForm(forms.ModelForm):
     class Meta:
         model = Post
