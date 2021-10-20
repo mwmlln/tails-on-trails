@@ -1,15 +1,67 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-<div class="col col-md-8 offset-md-2 mt-5">
-    <h2>Edit your Post</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ edit_post_form.as_p }}
+<section>
+        <div class="ms-3">
+                {% if create_post_form.errors %}
+                <div class="text-center mt-5" role="alert">
+                        {% for key, value in create_post_form.errors.items %}
+                        <span class="alert-secondary">{{key}}: {{value.as_text}}</span>
+                        {% endfor %}
+                </div>
+                {% endif %}
+        
 
-    <input type="submit" value="Update" class="mb-3">
-</form>
-</div>
-<p><a class="navbar-brand ms-3" href="{% url 'post_delete' slug=slug %}">Delete this Post</a></p>
+                <h2 class="text-center mt-5">Edit your Post</h2>
+                <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                        <div class="create-post ">
+                                <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+
+                                        <p class="create-label">{{ edit_post_form.title.label }} : <p
+                                                        class="create-titile">{{ edit_post_form.title }}</p>
+                                        </p>
+                                        <p class="create-label">{{ edit_post_form.location.label }} : <p
+                                                        class="create-titile">{{ edit_post_form.location }}</p>
+                                        </p>
+                                        <p class="create-label">{{ edit_post_form.excerpt.label }} : <p
+                                                        class="create-titile">{{ edit_post_form.excerpt }}</p>
+                                        </p>
+                                        <p class="create-label">{{ edit_post_form.content.label }} : <p
+                                                        class="create-titile">{{ edit_post_form.content }}</p>
+                                        </p>
+                                        <p class="create-label">{{ edit_post_form.featured_image.label }} :
+                                                <p
+                                                        class="create-titile">{{ edit_post_form.featured_image }}</p>
+                                        </p>
+                                        <div class="mb-1">
+                                                <p class="create-label">Difficulty of the trail</p>
+                                                <span class="ms-3">{{ edit_post_form.difficulty_hard.label }} : </span>
+                                                <span>{{ edit_post_form.difficulty_hard }}</span>
+                                                <span class="ms-3">{{ edit_post_form.difficulty_moderate.label }} : </span>
+                                                <span>{{ edit_post_form.difficulty_moderate }}</span>
+                                                <span class="ms-3">{{ edit_post_form.difficulty_easy.label }}: </span>
+                                                <span>{{ edit_post_form.difficulty_easy }}</span>
+                                        </div>
+                                        <div class="mb-1">
+                                                <p class="create-label">Suitable Dog size</p>
+                                                <span class="ms-3">{{ edit_post_form.breed_big.label }} : </span>
+                                                <span>{{ edit_post_form.breed_big }}</span>
+                                                <span class="ms-3">{{ edit_post_form.breed_mid.label }} : </span>
+                                                <span>{{ edit_post_form.breed_mid }}</span>
+                                                <span class="ms-3">{{ edit_post_form.breed_sml.label }} : </span>
+                                                <span>{{ edit_post_form.breed_sml }}</span>
+                                        </div>
+
+                                        <input type="submit" value="Update" class="btn btn-success bg-gradient mb-5 mt-3 create-btn">
+                                </form>
+                                <p><a class="navbar-brand ms-3" href="{% url 'post_delete' slug=slug %}">Delete this Post</a></p>
+                        </div>
+                </div>
+        </div>
+       
+</section>
+
 {% endblock %}

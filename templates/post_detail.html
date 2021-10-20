@@ -1,5 +1,5 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -23,85 +23,90 @@
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post title goes in these h1 tags -->
                 <h3 class="post-title">{{ post.location }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">Posted by: {{ post.author | title }} 
-                    <a href="{% url 'profile_detail' post.author.username %}">View Profile</a> 
-                </p>
-                     <p>Created :{{ post.created_on }}</p>
-                <p>Difficulty:
-                    {% if  post.difficulty_hard %}
-                    <span>
-                        Hard
-                        <i class="far fa-check-square"></i>
-                    </span>
-                    {% else %}
-                    <span class="text-muted">
-                        Hard
-                        <i class="far fa-square"></i>
-                    </span>
+                    <!-- Post author goes before the | the post's created date goes after -->
+                    <p class="post-subtitle">Posted by: {{ post.author | title }}
+                        <a href="{% url 'profile_detail' post.author.username %}">View Profile</a>
+                    </p>
+                    <p>Created :{{ post.created_on }}</p>
+                    <p>Difficulty:
+                        {% if  post.difficulty_hard %}
+                        <span>
+                            Hard
+                            <i class="far fa-check-square"></i>
+                        </span>
+                        {% else %}
+                        <span class="text-muted">
+                            Hard
+                            <i class="far fa-square"></i>
+                        </span>
+                        {% endif %}
+                        |
+                        {% if  post.difficulty_moderate %}
+                        <span>
+                            Moderate
+                            <i class="far fa-check-square"></i>
+                        </span>
+                        {% else %}
+                        <span class="text-muted">
+                            Moderate
+                            <i class="far fa-square"></i>
+                        </span>
+                        {% endif %}
+                        |
+                        {% if  post.difficulty_easy %}
+                        <span>
+                            Easy
+                            <i class="far fa-check-square"></i>
+                        </span>
+                        {% else %}
+                        <span class="text-muted">
+                            Easy
+                            <i class="far fa-square"></i>
+                        </span>
+                        {% endif %}
+                    </p>
+                    <p>Suitable dog size:
+                        {% if  post.breed_big %}
+                        <span>
+                            BIG
+                            <i class="far fa-check-square"></i>
+                        </span>
+                        {% else %}
+                        <span class="text-muted">
+                            BIG
+                            <i class="far fa-square"></i>
+                        </span>
+                        {% endif %}
+                        |
+                        {% if  post.breed_mid %}
+                        <span>
+                            Medium
+                            <i class="far fa-check-square"></i>
+                        </span>
+                        {% else %}
+                        <span class="text-muted">
+                            Medium
+                            <i class="far fa-square"></i>
+                        </span>
+                        {% endif %}
+                        |
+                        {% if  post.breed_sml %}
+                        <span>
+                            Small
+                            <i class="far fa-check-square"></i>
+                        </span>
+                        {% else %}
+                        <span class="text-muted">
+                            Small
+                            <i class="far fa-square"></i>
+                        </span>
+                        {% endif %}
+                    </p>
+                    {% if post.author.id == user.id %}
+                    <div>
+                        <a href="{% url 'post_edit' post.slug %}">Edit</a>
+                    </div>
                     {% endif %}
-                     |
-                    {% if  post.difficulty_moderate %}
-                    <span>
-                        Moderate
-                        <i class="far fa-check-square"></i>
-                    </span>
-                    {% else %}
-                    <span class="text-muted">
-                        Moderate
-                        <i class="far fa-square"></i>
-                    </span>
-                    {% endif %}
-                     |
-                    {% if  post.difficulty_easy %}
-                    <span>
-                        Easy
-                        <i class="far fa-check-square"></i>
-                    </span>
-                    {% else %}
-                    <span class="text-muted">
-                        Easy
-                        <i class="far fa-square"></i>
-                    </span>
-                    {% endif %}
-                </p>
-                <p>Suitable dog size:
-                    {% if  post.breed_big %}
-                    <span>
-                        BIG
-                        <i class="far fa-check-square"></i>
-                    </span>
-                    {% else %}
-                    <span class="text-muted">
-                        BIG
-                        <i class="far fa-square"></i>
-                    </span>
-                    {% endif %}
-                     |
-                    {% if  post.breed_mid %}
-                    <span>
-                        Medium
-                        <i class="far fa-check-square"></i>
-                    </span>
-                    {% else %}
-                    <span class="text-muted">
-                        Medium
-                        <i class="far fa-square"></i>
-                    </span>
-                    {% endif %}
-                     |
-                    {% if  post.breed_sml %}
-                    <span>
-                        Small
-                        <i class="far fa-check-square"></i>
-                    </span>
-                    {% else %}
-                    <span class="text-muted">
-                        Small
-                        <i class="far fa-square"></i>
-                    </span>
-                    {% endif %}
-                </p>
             </div>
 
         </div>
@@ -121,7 +126,7 @@
 
                     <div class="col-2">
                         <strong>
-                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST" >
+                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
 
