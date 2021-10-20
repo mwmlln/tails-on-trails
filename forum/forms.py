@@ -12,16 +12,16 @@ class CommentForm(forms.ModelForm):
 
 class CreatePostForm(forms.ModelForm):
     title = forms.CharField(
-                            label='Post Title', 
+                            label='Post Title',
                             widget=forms.TextInput(attrs={
                                 'placeholder':
                                 'Your post title here',
                                 'class': 'create-post'
                                 },))
     location = forms.CharField(label='Location')
-    excerpt = forms.CharField(label='Summary of your post')
+    excerpt = forms.CharField(label='Summary of your post', widget=forms.Textarea)
     content = forms.CharField(label='Post Content', widget=forms.Textarea)
-    difficulty_hard = forms.BooleanField(label='Hard', required=False)
+    difficulty_hard = forms.BooleanField(label='Hard', required=False )
     difficulty_moderate = forms.BooleanField(label='Moderate', required=False)
     difficulty_easy = forms.BooleanField(label='Easy', required=False)
     breed_big = forms.BooleanField(label='Big', required=False)
@@ -36,12 +36,14 @@ class CreatePostForm(forms.ModelForm):
         'breed_big', 'breed_mid','breed_sml' )
 
     def clean_title(self):
+        """checks if title entered already exisits already"""
         cleaned_data = super().clean()
         title = cleaned_data.get('title')
         is_exists = Post.objects.filter(title=title).first()
         if is_exists:
             raise validators.ValidationError('This title already exists.' 
                                             ' Please enter another one.')
+        return title
 
 
 class DeletePostForm(forms.ModelForm):

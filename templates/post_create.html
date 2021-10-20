@@ -5,29 +5,55 @@
 
 <section>
     <div class="contatiner">
-        <!-- {% if create_post_form.errors %}
-        <div class="text-center mt-5" role="alert">
-            {% for key, value in create_post_form.errors.items %}
-            <span class="alert alert-secondary">{{key}}: {{value.as_text}}</span>
-            {% endfor %}
+        <div class="row">
+            {% if create_post_form.errors %}
+            <div class="text-center mt-5" role="alert">
+                {% for key, value in create_post_form.errors.items %}
+                <span class="alert-secondary">{{key}}: {{value.as_text}}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
-        {% endif %} -->
-    </div>
-    <div class="row ms-2">
-        <h2 class="text-center mt-5">Create a Post</h2>
-        <div class="col col-md-8 offset-md-2 mt-5">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
 
-                <p>{{ create_post_form.title.label }} : {{ create_post_form.title.label }}</p>
+        <div class="row ms-2">
+            <h2 class="text-center mt-5">Create a Post</h2>
+            <div class="col col-md-8 offset-md-2 mt-5">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
 
+                    <p class="create-label">{{ create_post_form.title.label }} : <span
+                            class="create-titile">{{ create_post_form.title }}</span></p>
+                    <p class="create-label">{{ create_post_form.location.label }} : <span
+                            class="create-titile">{{ create_post_form.location }}</span></p>
+                    <p class="create-label">{{ create_post_form.excerpt.label }} : <span
+                            class="create-titile">{{ create_post_form.excerpt }}</span></p>
+                    <p class="create-label">{{ create_post_form.content.label }} : <span
+                            class="create-titile">{{ create_post_form.content }}</span></p>
+                    <p class="create-label">{{ create_post_form.featured_image.label }} : <span
+                            class="create-titile">{{ create_post_form.featured_image }}</span></p>
+                    <div class="mb-1">
+                        <p>Difficulty of the trail</p>
+                        <span class="ms-3">{{ create_post_form.difficulty_hard.label }} : <span
+                                class="create-titile">{{ create_post_form.difficulty_hard }}</span></span>
+                        <span class="ms-3">{{ create_post_form.difficulty_moderate.label }} : <span
+                                class="create-titile">{{ create_post_form.difficulty_moderate }}</span></span>
+                        <span class="ms-3">{{ create_post_form.difficulty_easy.label }} : <span
+                                class="create-titile">{{ create_post_form.difficulty_easy }}</span></span>
+                    </div>
+                    <div class="mb-1">
+                        <p>Difficulty of the trail</p>
+                        <span class="ms-3">{{ create_post_form.breed_big.label }} : <span
+                                class="create-titile">{{ create_post_form.breed_big }}</span></span>
+                        <span class="ms-3">{{ create_post_form.breed_mid.label }} : <span
+                                class="create-titile">{{ create_post_form.breed_mid }}</span></span>
+                        <span class="ms-3">{{ create_post_form.breed_sml.label }} : <span
+                                class="create-titile">{{ create_post_form.breed_sml }}</span></span>
+                    </div>
 
-                {{ create_post_form.as_p }}
-
-                <input type="submit" value="Create" class="mb-3">
-            </form>
+                    <input type="submit" value="Create" class="btn btn-success bg-gradient mb-3">
+                </form>
+            </div>
         </div>
-    </div>
     </div>
 </section>
 
