@@ -24,8 +24,9 @@
                 <!-- Post title goes in these h1 tags -->
                 <h3 class="post-title">{{ post.location }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">Posted by: {{ post.author }} <a href="{% url 'profile' post.author_id
-                     %}">View Profile</a> </p>
+                <p class="post-subtitle">Posted by: {{ post.author }} 
+                    <a href="{% url 'profile_detail' post.author.username %}">View Profile</a> 
+                </p>
                      <p>Created :{{ post.created_on }}</p>
                 <p>Difficulty:
                     {% if  post.difficulty_hard %}

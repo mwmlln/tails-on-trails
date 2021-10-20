@@ -1,14 +1,61 @@
+
+:root {
+  --title-font: 'Roboto', sans-serif;
+  --text-font-family: 'Lato', sans-serif;
+  --main-color: #bdd9bf;
+  --font-white: #f0f8ff;
+  --pule-color: #8d86c9;
+  --gray-color: #2e4052;
+  --blue-color:#a997df;
+  --red-color:#e5323b;
+}
+
 body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
   overflow-x: hidden;
+  font-family: var(--text-font-family);
 }
 
 main {
   flex: 1;
 }
 
+.nav-item {
+  font-family: var(--title-font);
+}
+
+.navbar-light {
+  background-color: var(--main-color);
+}
+
+.btn-text-white {
+  color: var(--font-white);
+}
+
+.btn-outline-primary {
+  color: var(--gray-color);
+  border-color: var(--gray-color);
+}
+
+.btn-light {
+  color: var(--gray-color);
+}
+
+.btn-regiter {
+  background-color: var(--red-color);
+  color: var(--font-white);
+}
+
+.btn-login {
+  background-color: var(--blue-color);
+  color: var(--font-white);
+}
+
+footer{
+  background-color: var(--main-color);
+}
 
 .hero-container {
   height: 80vh;
@@ -18,12 +65,14 @@ main {
   background-position: bottom center;
   display: flex;
   align-items: center;
-  overflow-x: hidden;
 }
 
 .hero-text {
-  color: antiquewhite;
+  color: var(--font-white);
   font-size: 2rem;
+  background-color: rgb(46, 64, 82, 0.3);
+  max-width: 100%;
+  width: fit-content;
 }
 
 .btn-like {
@@ -32,15 +81,8 @@ main {
   background: transparent;
 }
 
-.image-container {
-  max-height: 350px;
-  overflow: hidden;
-}
 
-/* taken from Bootstrap sign-in example */
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+.about {
+  margin-top: -3rem;
+  flex-wrap: nowrap;
 }

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col col-md-8 offset-md-2 mt-5">
+    <h2>View your Profile</h2>
+    <p>{{user.username|title}}'s Profile</p>
+
+
+    <input type="submit" value="Update" class="btn btn-success btn-lg bg-gradient mb-3">
+</form>
+</div>
+{% endblock %}
