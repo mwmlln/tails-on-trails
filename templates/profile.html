@@ -22,12 +22,12 @@
                                     <img class="card-img-top" src="{{ profile.featured_image.url }}">
                                     {% endif %}
                                 </div>
-                                <h2 class="author">User: {{ profile.user.username }}</h2>
-                                <p class="card-title">Abuot me: {{ profile.about_me }}</p>
+                                <h2 class="author">User: {{ profile.user.username | title }}</h2>
+                                <p class="card-title">Abuot me : {{ profile.about_me }}</p>
                                 <hr>
-                                <p class="card-text">About my dog{{ profile.about_dog }}</p>
+                                <p class="card-text">About my dog : {{ profile.about_dog }}</p>
                                 <hr>
-                                <p class="card-text">My favorite place: {{ profile.favorite_location }}</p>
+                                <p class="card-text">My favorite place : {{ profile.favorite_location }}</p>
                                 <hr />
                             </div>
                         </div>
