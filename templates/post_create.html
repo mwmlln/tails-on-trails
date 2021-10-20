@@ -1,15 +1,34 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-<div class="col col-md-8 offset-md-2 mt-5">
-    <h2>Create a Post</h2>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ create_post_form.as_p }}
+<section>
+    <div class="contatiner">
+        <!-- {% if create_post_form.errors %}
+        <div class="text-center mt-5" role="alert">
+            {% for key, value in create_post_form.errors.items %}
+            <span class="alert alert-secondary">{{key}}: {{value.as_text}}</span>
+            {% endfor %}
+        </div>
+        {% endif %} -->
+    </div>
+    <div class="row ms-2">
+        <h2 class="text-center mt-5">Create a Post</h2>
+        <div class="col col-md-8 offset-md-2 mt-5">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
 
-    <input type="submit" value="Create" class="mb-3">
-</form>
-</div>
+                <p>{{ create_post_form.title.label }} : {{ create_post_form.title.label }}</p>
+
+
+                {{ create_post_form.as_p }}
+
+                <input type="submit" value="Create" class="mb-3">
+            </form>
+        </div>
+    </div>
+    </div>
+</section>
 
 {% endblock %}

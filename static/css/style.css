@@ -81,8 +81,16 @@ footer{
   background: transparent;
 }
 
-
 .about {
   margin-top: -3rem;
   flex-wrap: nowrap;
 }
+
+.create-post {
+  min-width: 250px;
+}
+
+label {
+  min-width: 20vw;
+}
+

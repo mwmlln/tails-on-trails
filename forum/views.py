@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from .forms import CommentForm, CreatePostForm, ProfileEditForm
+from .forms import CommentForm, CreatePostForm, ProfileEditForm, ProfileForm
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
@@ -170,31 +170,31 @@ class ProfileList(LoginRequiredMixin, generic.ListView):
     paginate_by = 6
 
 
+@login_required
+def profile_detail(request, username):
+    """View the profile of post author"""
+    profile_form = ProfileForm(username = Profile.user )
+    print(profile_form)
+    return render(
+                request, 
+                'profile.html',
+                context={
+                'profile_form':profile_form }
+                )
 
-# def profile(request):
-#     """
-#     View the profile of post author
-#     """
+# class ProfileDetail(View):
+#     """Only available for logged-in users"""
+#     @method_decorator(login_required, name='home')
+#     def get(self, request, username, *args, **kwargs):
+#         queryset = Profile.objects.all()
+#         post = get_object_or_404(Post, autor_id=autor_id)
+#         profile = get_object_or_404(queryset, user=post.autor.username)
 
-# 	profile_form = ProfileForm(instance=Post.author)
-# 	return render(
-#                 request=request, 
-#                 template_name="profile.html", 
-#                 context={"user":request.user.username, "profile_form":profile_form })
-
-class ProfileDetail(View):
-    """Only available for logged-in users"""
-    @method_decorator(login_required, name='home')
-    def get(self, request, username, *args, **kwargs):
-        queryset = Profile.objects.all()
-        post = get_object_or_404(Post, autor_id=autor_id)
-        profile = get_object_or_404(queryset, user=post.autor.username)
-
-        return render(
-            request,
-            "profile_detail.html",
-            {
-                "profile": profile,
-            },
-        )
+#         return render(
+#             request,
+#             "profile_detail.html",
+#             {
+#                 "profile": profile,
+#             },
+#         )
 
