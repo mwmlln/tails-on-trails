@@ -1,13 +1,25 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-<div class="col col-md-8 offset-md-2 mt-5">
-    <h2>View your Profile</h2>
-    <p>{{user.username|title}}'s Profile</p>
+<div class="col col-md-6 offset-md-3 col-lg-4 offset-lg-4 mt-5">
+    <h2>View Profile</h2>
+
+    <div class="mt-2">
+        <!-- The featured image URL goes in the src attribute -->
+        {% if "placeholder" in profile.featured_image.url %}
+        <img src="{% static 'images/no_user_image.jpg' %}" alt="No photo available image " width="100%">
+        {% else %}
+        <img src=" {{ profile.featured_image.url }}" alt="image of posted location" width="100%">
+        {% endif %}
+    </div>
+
+    <p>{{ profile.user.username | title }}'s Profile</p>
+    <p>About me : {{ profile.about_me  }}</p>
+    <p>About my Dog(s) : {{ profile.about_me  }}</p>
+    <p>Favorite place : {{ profile.favorite_location  }}</p>
 
 
-    <input type="submit" value="Update" class="btn btn-success btn-lg bg-gradient mb-3">
-</form>
 </div>
 {% endblock %}

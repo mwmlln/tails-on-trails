@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from .forms import CommentForm, CreatePostForm, EditPostForm, DeletePostForm
-from .forms import ProfileEditForm, ProfileForm
+from .forms import ProfileEditForm
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
@@ -176,31 +176,14 @@ class ProfileList(LoginRequiredMixin, generic.ListView):
     paginate_by = 6
 
 
-@login_required
-def profile_detail(request, username):
-    """View the profile of post author"""
-    profile_form = ProfileForm(username = Profile.user )
-    print(profile_form)
-    return render(
-                request, 
-                'profile.html',
-                context={
-                'profile_form':profile_form }
-                )
+class ProfileDetail(LoginRequiredMixin, generic.DetailView):
+    model = Profile
+    queryset = Profile.objects.all()
+    template_name = 'profile_detail.html'
 
-# class ProfileDetail(View):
-#     """Only available for logged-in users"""
-#     @method_decorator(login_required, name='home')
-#     def get(self, request, username, *args, **kwargs):
-#         queryset = Profile.objects.all()
-#         post = get_object_or_404(Post, autor_id=autor_id)
-#         profile = get_object_or_404(queryset, user=post.autor.username)
+    def get_object(self):
+        return get_object_or_404(Profile, user__username=self.kwargs['username'])
 
-#         return render(
-#             request,
-#             "profile_detail.html",
-#             {
-#                 "profile": profile,
-#             },
-#         )
+    
+
 
