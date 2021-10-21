@@ -96,3 +96,14 @@ footer{
   width: 100%;
 }
 
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}

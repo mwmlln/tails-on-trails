@@ -8,6 +8,10 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['location', 'content']
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('status', 'created_on')
+    actions = ['approve_post']
+
+    def approve_post(self, request, queryset):
+        queryset.update(status=1)
 
 
 @admin.register(Profile)

@@ -238,6 +238,9 @@ Heroku Postgres then ensure the changes are reflected in the database
 
   Solution for applying login_required to ListView [stack overflow](https://stackoverflow.com/questions/10275164/django-generic-views-using-decorator-login-required)
 
+  [Displaying success meaages in rendered page](https://dot-blog.jp/news/django-messages-frame-work/)
+
+
 
 * Images 
   

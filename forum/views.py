@@ -102,11 +102,14 @@ def create_post(request):
     if create_post_form.is_valid():
         create_post_form.instance.author = request.user
         create_post_form.save()
+        messages.success(request, 
+                        'Your post is successfully submitted' 
+                        'and is awaiting for approval')
         return redirect('posts')
     return render(
                 request, 
                 'post_create.html', 
-                context= {'create_post_form': create_post_form,}
+                context={'create_post_form': create_post_form,}
                 )
 
 
@@ -118,6 +121,7 @@ def edit_post(request, slug):
     edit_post_form = EditPostForm(request.POST or None, instance=post)
     if edit_post_form.is_valid():
         edit_post_form.save()
+        messages.success(request, 'Your post is successfully updated')
         return redirect('posts')
     return render(
                 request, 'post_edit.html', 
@@ -133,7 +137,7 @@ def delete_post(request, slug):
     delete_post_form = DeletePostForm(request.POST or None)
     if delete_post_form.is_valid(): # checking csrf token
         post.delete()
-        # messages(request, 'Your post is deleted')
+        messages.success(request, 'Your post is successfully deleted')
         return redirect('posts')
     return render(
                 request, 'post_delete.html', context={
@@ -151,7 +155,7 @@ def edit_profile(request):
         form = ProfileEditForm(request.POST or None, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully')
+            messages.success(request, 'Your profile is successfully updated')
             return redirect('posts')
         else:
             messages.error(request,
