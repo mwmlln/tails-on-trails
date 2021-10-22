@@ -77,19 +77,20 @@ class DeletePostForm(forms.ModelForm):
         fields = []
 
 
-class ProfileForm(forms.ModelForm):  
+# class ProfileForm(forms.ModelForm):  
 
-    class Mata:
-        model = Profile
-        fields = '__all__'
+#     class Mata:
+#         model = Profile
+#         fields = '__all__'
 
 
 class ProfileEditForm(forms.ModelForm):
 
     featured_image = forms.FileField(label='Image')
-    about_me = forms.CharField(label='About Me:')
-    about_dog = forms.CharField(label='About My Dog(s):')
-    favorite_location = forms.CharField(label='My Favorite Location:', max_length=300)
+    about_me = forms.CharField(label='About Me:', widget=forms.Textarea)
+    about_dog = forms.CharField(label='About My Dog(s):', widget=forms.Textarea)
+    favorite_location = forms.CharField(label='My Favorite Location:', 
+                                        widget=forms.Textarea, max_length=300)
 
     class Meta:
         model = Profile
