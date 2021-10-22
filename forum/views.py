@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from .forms import CommentForm, CreatePostForm, EditPostForm, DeletePostForm
 from .forms import ProfileEditForm
-from django.urls import reverse_lazy
+# from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 from django.contrib import messages
@@ -173,7 +173,7 @@ class ProfileList(LoginRequiredMixin, generic.ListView):
     model = Profile
     queryset = Profile.objects.all()
     template_name = "profile.html"
-    paginate_by = 6
+    paginate_by = 8
 
 
 class ProfileDetail(LoginRequiredMixin, generic.DetailView):

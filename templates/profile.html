@@ -12,7 +12,7 @@
             <div class="col-12 mt-3 left">
                 <div class="row">
                     {% for profile in profile_list %}
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="image-container">
@@ -22,17 +22,13 @@
                                     <img class="card-img-top" src="{{ profile.featured_image.url }}">
                                     {% endif %}
                                 </div>
-                                <h2 class="author">User: {{ profile.user.username | title }}</h2>
-                                <p class="card-title">Abuot me : {{ profile.about_me }}</p>
+                                <h2 class="author">{{ profile.user.username | title }}</h2>
                                 <hr>
-                                <p class="card-text">About my dog : {{ profile.about_dog }}</p>
-                                <hr>
-                                <p class="card-text">My favorite place : {{ profile.favorite_location }}</p>
-                                <hr />
+                                <a href="{% url 'profile_detail' profile.user.username %}" class="btn btn-primary">View Profile</a>
                             </div>
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
+                    {% if forloop.counter|divisibleby:4 %}
                 </div>
                 <div class="row">
                     {% endif %}
