@@ -242,6 +242,8 @@ Heroku Postgres then ensure the changes are reflected in the database
 
   [Displaying success meaages in rendered page](https://dot-blog.jp/news/django-messages-frame-work/)
 
+  Django automated testing [Django Testing Tutorial](https://www.youtube.com/watch?v=qwypH3YvMKc&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM)
+
 
 
 * Images 
