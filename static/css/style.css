@@ -4,7 +4,7 @@
   --text-font-family: 'Lato', sans-serif;
   --main-color: #bdd9bf;
   --font-white: #f0f8ff;
-  --pule-color: #8d86c9;
+  --purple-color: #8d86c9;
   --gray-color: #2e4052;
   --blue-color:#a997df;
   --red-color:#e5323b;
@@ -106,4 +106,14 @@ input {
 
 textarea {
   width: 100%;
+}
+
+.brand {
+  color: var(--gray-color);
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.faded {
+  color: var(--purple-color);
 }

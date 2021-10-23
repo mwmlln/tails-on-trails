@@ -8,7 +8,7 @@
     <div class="alert alert-secondary alert-dismissible" role="alert">
         <ul class="messages">
             {% for message in messages %}
-            <li{% if message.success %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            <li {% if message.success %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
                 {% endfor %}
         </ul>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
