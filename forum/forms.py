@@ -88,13 +88,6 @@ class DeletePostForm(forms.ModelForm):
         fields = []
 
 
-# class ProfileForm(forms.ModelForm):
-
-#     class Mata:
-#         model = Profile
-#         fields = '__all__'
-
-
 class ProfileEditForm(forms.ModelForm):
 
     featured_image = forms.FileField(label='Image')
