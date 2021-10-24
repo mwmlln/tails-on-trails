@@ -17,9 +17,9 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="forum_posts"
     )
     featured_image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(blank=True)
+    excerpt = models.TextField(max_length=300, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = models.TextField(max_length=1500)
     difficulty_hard = models.BooleanField(default=False)
     difficulty_moderate = models.BooleanField(default=False)
     difficulty_easy = models.BooleanField(default=False)

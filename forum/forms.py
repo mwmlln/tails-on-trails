@@ -13,17 +13,22 @@ class CommentForm(forms.ModelForm):
 class CreatePostForm(forms.ModelForm):
     title = forms.CharField(
                             label='Post Title',
+                            max_length=200,
                             widget=forms.TextInput(attrs={
                                 'placeholder':
                                 'Your unique post title',
                                 },))
-    location = forms.CharField(label='Location')
+    location = forms.CharField(label='Location', max_length=50)
     excerpt = forms.CharField(
                             label='Summary of your post', 
-                            widget=forms.Textarea, 
+                            max_length=300,
+                            widget=forms.Textarea,
                             required=False)
-    content = forms.CharField(label='Post Content', widget=forms.Textarea)
-    difficulty_hard = forms.BooleanField(label='Hard', required=False )
+    content = forms.CharField(
+                            label='Post Content',
+                            max_length=1500,
+                            widget=forms.Textarea)
+    difficulty_hard = forms.BooleanField(label='Hard', required=False)
     difficulty_moderate = forms.BooleanField(label='Moderate', required=False)
     difficulty_easy = forms.BooleanField(label='Easy', required=False)
     breed_big = forms.BooleanField(label='Big', required=False)
@@ -32,10 +37,11 @@ class CreatePostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'location', 'excerpt',
-        'featured_image', 'content','difficulty_hard',
-        'difficulty_moderate','difficulty_easy',
-        'breed_big', 'breed_mid','breed_sml' )
+        fields = (
+            'title', 'location', 'excerpt',
+            'featured_image', 'content', 'difficulty_hard',
+            'difficulty_moderate', 'difficulty_easy',
+            'breed_big', 'breed_mid', 'breed_sml')
 
     def clean_title(self):
         """checks if title entered already exisits already"""
@@ -43,20 +49,24 @@ class CreatePostForm(forms.ModelForm):
         title = cleaned_data.get('title')
         is_exists = Post.objects.filter(title=title).first()
         if is_exists:
-            raise validators.ValidationError('This title already exists.' 
-                                            ' Please enter another one.')
+            raise validators.ValidationError('This title already exists.'
+                                            'Please enter another one.')
         return title
 
 
 class EditPostForm(forms.ModelForm):
-    title = forms.CharField(label='Post Title')
-    location = forms.CharField(label='Location')
+    title = forms.CharField(label='Post Title', max_length=200)
+    location = forms.CharField(label='Location', max_length=50)
     excerpt = forms.CharField(
                             label='Summary of your post', 
+                            max_length=300,
                             widget=forms.Textarea, 
                             required=False)
-    content = forms.CharField(label='Post Content', widget=forms.Textarea)
-    difficulty_hard = forms.BooleanField(label='Hard', required=False )
+    content = forms.CharField(
+                            label='Post Content',
+                            max_length=1500,
+                            widget=forms.Textarea)
+    difficulty_hard = forms.BooleanField(label='Hard', required=False)
     difficulty_moderate = forms.BooleanField(label='Moderate', required=False)
     difficulty_easy = forms.BooleanField(label='Easy', required=False)
     breed_big = forms.BooleanField(label='Big', required=False)
@@ -65,10 +75,11 @@ class EditPostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'location', 'excerpt',
-        'featured_image', 'content','difficulty_hard',
-        'difficulty_moderate','difficulty_easy',
-        'breed_big', 'breed_mid','breed_sml' )
+        fields = (
+            'title', 'location', 'excerpt',
+            'featured_image', 'content', 'difficulty_hard',
+            'difficulty_moderate', 'difficulty_easy',
+            'breed_big', 'breed_mid', 'breed_sml')
 
 
 class DeletePostForm(forms.ModelForm):
@@ -77,7 +88,7 @@ class DeletePostForm(forms.ModelForm):
         fields = []
 
 
-# class ProfileForm(forms.ModelForm):  
+# class ProfileForm(forms.ModelForm):
 
 #     class Mata:
 #         model = Profile
@@ -87,11 +98,20 @@ class DeletePostForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
 
     featured_image = forms.FileField(label='Image')
-    about_me = forms.CharField(label='About Me:', widget=forms.Textarea)
-    about_dog = forms.CharField(label='About My Dog(s):', widget=forms.Textarea)
-    favorite_location = forms.CharField(label='My Favorite Location:', 
-                                        widget=forms.Textarea, max_length=300)
+    about_me = forms.CharField(
+                            label='About Me:',
+                            max_length=300,
+                            widget=forms.Textarea)
+    about_dog = forms.CharField(
+                            label='About My Dog(s):',
+                            max_length=300,
+                            widget=forms.Textarea)
+    favorite_location = forms.CharField(
+                                    label='My Favorite Location:',
+                                    max_length=100,
+                                    widget=forms.Textarea, )
 
     class Meta:
         model = Profile
-        fields = ('featured_image','about_me','about_dog', 'favorite_location')
+        fields = ('featured_image', 'about_me', 
+                'about_dog', 'favorite_location')
