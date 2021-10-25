@@ -29,7 +29,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['tailsontrails.herokuapp.com', 'localhost']
 
@@ -39,7 +39,7 @@ development = os.environ.get('DEVELOPMENT', False)
 if development:
     ALLOWED_HOSTS = ['localhost']
 else:
-    ALLOWED_HOSTS = ['blog.herokuapp.com']
+    ALLOWED_HOSTS = ['tailsontrails.herokuapp.com']
 
 # Application definition
 
