@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.text import slugify 
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.dispatch import receiver
@@ -29,14 +29,16 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
-        User, related_name='blogpost_like', blank=True)
+                                User,
+                                related_name='blogpost_like',
+                                blank=True)
 
     class Meta:
         ordering = ["-created_on"]
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs)    
+        super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title

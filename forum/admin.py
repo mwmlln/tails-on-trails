@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Post, Comment,Profile
+from .models import Post, Comment, Profile
+
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -17,7 +18,8 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
 
-    list_display = ('user', 'about_me', 'about_dog', 'featured_image', 'favorite_location')
+    list_display = ('user', 'about_me', 'about_dog', 'featured_image',
+                    'favorite_location')
 
 
 @admin.register(Comment)
@@ -26,7 +28,6 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ('approved', 'created_on')
     search_fields = ('name', 'email', 'body')
     actions = ['approve_comments']
-
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)

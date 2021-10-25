@@ -20,7 +20,7 @@ class CreatePostForm(forms.ModelForm):
                                 },))
     location = forms.CharField(label='Location', max_length=50)
     excerpt = forms.CharField(
-                            label='Summary of your post', 
+                            label='Summary of your post',
                             max_length=300,
                             widget=forms.Textarea,
                             required=False)
@@ -49,7 +49,8 @@ class CreatePostForm(forms.ModelForm):
         title = cleaned_data.get('title')
         is_exists = Post.objects.filter(title=title).first()
         if is_exists:
-            raise validators.ValidationError('This title already exists.'
+            raise validators.ValidationError(
+                                            'This title already exists.'
                                             'Please enter another one.')
         return title
 
@@ -58,9 +59,9 @@ class EditPostForm(forms.ModelForm):
     title = forms.CharField(label='Post Title', max_length=200)
     location = forms.CharField(label='Location', max_length=50)
     excerpt = forms.CharField(
-                            label='Summary of your post', 
+                            label='Summary of your post',
                             max_length=300,
-                            widget=forms.Textarea, 
+                            widget=forms.Textarea,
                             required=False)
     content = forms.CharField(
                             label='Post Content',
@@ -106,5 +107,6 @@ class ProfileEditForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('featured_image', 'about_me', 
+        fields = (
+                'featured_image', 'about_me',
                 'about_dog', 'favorite_location')

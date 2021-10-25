@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from .forms import CommentForm, CreatePostForm, EditPostForm, DeletePostForm
 from .forms import ProfileEditForm
-# from django.urls import reverse_lazy
 from django.views import generic, View
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -52,7 +51,6 @@ class PostDetail(View):
             },
         )
 
-
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
@@ -84,9 +82,9 @@ class PostDetail(View):
             },
         )
 
-    
+
 class PostLike(View):
-    
+
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -96,20 +94,22 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 @login_required
 def create_post(request):
     create_post_form = CreatePostForm(request.POST or None, request.FILES)
     if create_post_form.is_valid():
         create_post_form.instance.author = request.user
         create_post_form.save()
-        messages.success(request, 
-                        'Your post is successfully submitted' 
-                        'and is awaiting for approval')
+        messages.success(
+                    request,
+                    'Your post is successfully submitted'
+                    'and is awaiting for approval')
         return redirect('posts')
     return render(
-                request, 
-                'post_create.html', 
-                context={'create_post_form': create_post_form,}
+                request,
+                'post_create.html',
+                context={'create_post_form': create_post_form}
                 )
 
 
@@ -124,9 +124,10 @@ def edit_post(request, slug):
         messages.success(request, 'Your post is successfully updated')
         return redirect('posts')
     return render(
-                request, 'post_edit.html', 
-                context= {'edit_post_form': edit_post_form,
-                'slug': slug},
+                request, 'post_edit.html',
+                context={
+                    'edit_post_form': edit_post_form,
+                    'slug': slug},
                 )
 
 
@@ -135,14 +136,14 @@ def delete_post(request, slug):
     if request.user != post.author:
         raise Http404
     delete_post_form = DeletePostForm(request.POST or None)
-    if delete_post_form.is_valid(): # checking csrf token
+    if delete_post_form.is_valid():    # checking csrf token
         post.delete()
         messages.success(request, 'Your post is successfully deleted')
         return redirect('posts')
     return render(
-                request, 'post_delete.html', context={
-                'delete_post_form': delete_post_form,
-                }
+                request,
+                'post_delete.html',
+                context={'delete_post_form': delete_post_form, }
             )
 
 
@@ -152,22 +153,25 @@ def edit_profile(request):
     profile = get_object_or_404(Profile, user=request.user)
 
     if request.method == 'POST':
-        form = ProfileEditForm(request.POST or None, request.FILES, instance=profile)
+        form = ProfileEditForm(
+                            request.POST or None,
+                            request.FILES,
+                            instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your profile is successfully updated')
             return redirect('posts')
         else:
             messages.error(request,
-                           ('Update failed. Please ensure '
+                           ('Update failed. Please ensure'
                             'the form is valid.'))
     else:
         form = ProfileEditForm(instance=profile)
     template = 'profile_edit.html'
-    context = {'form': form,}
+    context = {'form': form, }
 
     return render(request, template, context)
-    
+
 
 class ProfileList(LoginRequiredMixin, generic.ListView):
     model = Profile
@@ -182,8 +186,6 @@ class ProfileDetail(LoginRequiredMixin, generic.DetailView):
     template_name = 'profile_detail.html'
 
     def get_object(self):
-        return get_object_or_404(Profile, user__username=self.kwargs['username'])
-
-    
-
-
+        return get_object_or_404(
+                                Profile,
+                                user__username=self.kwargs['username'])
