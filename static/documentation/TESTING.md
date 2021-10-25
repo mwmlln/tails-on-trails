@@ -11,6 +11,8 @@ Here is the steps taken to enable testing in the development environment.
 1. Following lines were added in setting.py and env.py
 
     **In setting.py**
+
+
         if development:
             DATABASES = {
                 'default': {
@@ -33,7 +35,13 @@ Here is the steps taken to enable testing in the development environment.
             ALLOWED_HOSTS = ['blog.herokuapp.com']
             
     **In env.py**
+
+    
       os.environ["DEVELOPMENT"] = "True"
 
 2. After setting up the developmet setting run migrate in command line as follows:
     python3 manage.py migrate
+
+
+
+  [<<< Back to README](../../README.md)

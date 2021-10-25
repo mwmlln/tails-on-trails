@@ -59,7 +59,7 @@ footer{
 
 .hero-container {
   height: 80vh;
-  background-image: url("/static/images/dog_in_field.jpg");
+  background-image: url("{% static %}/images/default_image.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;

@@ -20,29 +20,29 @@ This site is mainly intended for registered users however unregistered guest use
 
 ### USER STORIES
 
-Isseu No. | Title | User story | Acceptance criteria
-----------|-------|------------|--------------------
-#01 | Create Landing page | As a Site owner I can provide clear purpose of the site so that new and returning users know what the web site is about and how to use it | State clear purpose of the site in the page and no confusing elementsfor site visitors
-#02 | Account registration | As a Site User I can register an account so that I can comment and like | Secure and easy account registration page and logout button made available once logged in 
-#03 | Create post | As a registered user I can create a post and publish it so that I can share an information to others |  For minimum implementation, admin user can create a post by using admin page. Ideally registered users can create posts pending approval from admin user.
-#04 | Manage post | As a Site Admin I can create, read, update and delete posts so that I can manage forum content | Admin user can manage the status of the posts and comments for the safe use of the site
-#05 | Site pagination | As a Site User I can view a paginates list of posts so that easily select a post to view | Preset number of posts to display in page to avoid too much scrolling.
-#06 | Approve Post | As a Site Admin I can approve or disapprove posts so that I can filter out objectionable comments | Preset the new post to post status and only allow to  display the post with approved status 
-#07 | View post list | As a Site user I can view a list of the posts so that I can select | Both registered and non-registered users can view the summary of all approved posts
-#08 | Open a post | As a Site User I can click on a post so that I can read the full content of the post | Only registered users can open an individual post detail and view/create a comment or press Likes 
-#09 | Comment on a post | As a Site User I can leave comments on a post so that I can be involved in the conversation | Only registered user can leave comments and only approved comments can be displayed
-#10 | View comments | As a Site User / Admin I can view comments on an individual post so that I can read the conversation | Comments displays on a page that only registered users have access to.
-#11 | Approve comments | As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments | Ensure that new comments are set to False for approval so that Admin user can approve upon review
-#12 | Like/Unlike | As a Site User I can like or unlike a post so that I can interact with the content | Only registered user has access to the button and they can remove Like by pressing the button again
-#13 | View Likes | As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular or viral | Number of the Likes counted correctly
-#14 | Uploading the image | As a registered site user I would like to include an image/images to my post so that I can make more visual impact on my post | Image file uploaded to Cloudinary and render in the corresponding post and profile
-#15 | Filter on posts | As a site user, I would like to filter the posts so that I can see only the lists of posts that I am interested in | Not finalised as this is an extra feature to the site
-#16 | View profile | As a registered site user, I would like to view the post creators profile page so that I can find out more about the author of the post | Ensure that  only registered users can view the profiles
-#17 | Location on map | As a site user I would like to see the location of the post on the map so that I can find out the exact location if I want to visit there | Not finalised as this is an extra feature to the site
-#18 | Add email authentication | As a site owner, I would like to send a registration link to user’s email in order for the users to complete the registration so that I can verify user's email is legit | Not finalised as this is an extra feature to the site
-#19 | Contact page | As a site user I would like to be able to contact the site owner so that I can express my opinion or make queries about the site | Not finalised as this is an extra feature to the site
-#20 | About the site | As a user I can find the information about the site so that I can quickly familiarize the use of the site | About the site information should be accessible from every page within the site
-#21 | Site works as intended- testing | As a site owner I can make sure that site works throughout as intended so that I can provide a reliable service to users | Acceptance criteria: Automated testing added and successfully runs in addition to manual testing
+Isseu No. | Title | User story | Acceptance criteria | Implemented
+----------|-------|------------|---------------------|-------
+#01 | Create Landing page | As a Site owner I can provide clear purpose of the site so that new and returning users know what the web site is about and how to use it | State clear purpose of the site in the page and no confusing elementsfor site visitors | [x]
+#02 | Account registration | As a Site User I can register an account so that I can comment and like | Secure and easy account registration page and logout button made available once logged in | [x]
+#03 | Create post | As a registered user I can create a post and publish it so that I can share an information to others |  For minimum implementation, admin user can create a post by using admin page. Ideally registered users can create posts pending approval from admin user. | [x]
+#04 | Manage post | As a Site Admin I can create, read, update and delete posts so that I can manage forum content | Admin user can manage the status of the posts and comments for the safe use of the site | [x]
+#05 | Site pagination | As a Site User I can view a paginates list of posts so that easily select a post to view | Preset number of posts to display in page to avoid too much scrolling. | [x]
+#06 | Approve Post | As a Site Admin I can approve or disapprove posts so that I can filter out objectionable comments | Preset the new post to post status and only allow to  display the post with approved status | [x]
+#07 | View post list | As a Site user I can view a list of the posts so that I can select | Both registered and non-registered users can view the summary of all approved posts | [x]
+#08 | Open a post | As a Site User I can click on a post so that I can read the full content of the post | Only registered users can open an individual post detail and view/create a comment or press Likes  | [x]
+#09 | Comment on a post | As a Site User I can leave comments on a post so that I can be involved in the conversation | Only registered user can leave comments and only approved comments can be displayed  | [x]
+#10 | View comments | As a Site User / Admin I can view comments on an individual post so that I can read the conversation | Comments displays on a page that only registered users have access to. | [x]
+#11 | Approve comments | As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments | Ensure that new comments are set to False for approval so that Admin user can approve upon review  | [x]
+#12 | Like/Unlike | As a Site User I can like or unlike a post so that I can interact with the content | Only registered user has access to the button and they can remove Like by pressing the button again  | [x]
+#13 | View Likes | As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular or viral | Number of the Likes counted correctly  | [x]
+#14 | Uploading the image | As a registered site user I would like to include an image/images to my post so that I can make more visual impact on my post | Image file uploaded to Cloudinary and render in the corresponding post and profile  | [x]
+#15 | Filter on posts | As a site user, I would like to filter the posts so that I can see only the lists of posts that I am interested in | Not finalised as this is an extra feature to the site | [ ]
+#16 | View profile | As a registered site user, I would like to view the post creators profile page so that I can find out more about the author of the post | Ensure that  only registered users can view the profiles  | [x]
+#17 | Location on map | As a site user I would like to see the location of the post on the map so that I can find out the exact location if I want to visit there | Not finalised as this is an extra feature to the site | [ ]
+#18 | Add email authentication | As a site owner, I would like to send a registration link to user’s email in order for the users to complete the registration so that I can verify user's email is legit | Not finalised as this is an extra feature to the site | [ ]
+#19 | Contact page | As a site user I would like to be able to contact the site owner so that I can express my opinion or make queries about the site | Not finalised as this is an extra feature to the site | [ ]
+#20 | About the site | As a user I can find the information about the site so that I can quickly familiarize the use of the site | About the site information should be accessible from every page within the site  | [x]
+#21 | Site works as intended- testing | As a site owner I can make sure that site works throughout as intended so that I can provide a reliable service to users | Acceptance criteria: Automated testing added and successfully runs in addition to manual testing  | [x]
 
 
 
