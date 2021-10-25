@@ -20,22 +20,21 @@
                                 <form method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
 
-                                        <p class="create-label">{{ edit_post_form.title.label }} : <p
-                                                        class="create-titile">{{ edit_post_form.title }}</p>
-                                        </p>
-                                        <p class="create-label">{{ edit_post_form.location.label }} : <p
-                                                        class="create-titile">{{ edit_post_form.location }}</p>
-                                        </p>
-                                        <p class="create-label">{{ edit_post_form.excerpt.label }} : <p
-                                                        class="create-titile">{{ edit_post_form.excerpt }}</p>
-                                        </p>
-                                        <p class="create-label">{{ edit_post_form.content.label }} : <p
-                                                        class="create-titile">{{ edit_post_form.content }}</p>
-                                        </p>
-                                        <p class="create-label">{{ edit_post_form.featured_image.label }} :
-                                                <p
-                                                        class="create-titile">{{ edit_post_form.featured_image }}</p>
-                                        </p>
+                                        <p class="create-label">{{ edit_post_form.title.label }} : </p>
+                                        <p class="create-titile">{{ edit_post_form.title }}</p>
+                                        
+                                        <p class="create-label">{{ edit_post_form.location.label }} : </p>
+                                        <p class="create-titile">{{ edit_post_form.location }}</p>
+                                        
+                                        <p class="create-label">{{ edit_post_form.excerpt.label }} : </p>
+                                        <p class="create-titile">{{ edit_post_form.excerpt }}</p>
+                                        
+                                        <p class="create-label">{{ edit_post_form.content.label }} : </p>
+                                        <p class="create-titile">{{ edit_post_form.content }}</p>
+                                        
+                                        <p class="create-label">{{ edit_post_form.featured_image.label }} :</p>
+                                        <p  class="create-titile">{{ edit_post_form.featured_image }}</p>
+                                        
                                         <div class="mb-1">
                                                 <p class="create-label">Difficulty of the trail</p>
                                                 <span class="ms-3">{{ edit_post_form.difficulty_hard.label }} : </span>

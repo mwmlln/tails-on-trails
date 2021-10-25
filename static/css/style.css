@@ -117,3 +117,7 @@ textarea {
 .faded {
   color: var(--purple-color);
 }
+
+.post-detail_img {
+  width: 100%;
+}

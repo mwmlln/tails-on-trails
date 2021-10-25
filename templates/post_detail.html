@@ -12,9 +12,9 @@
             <div class="col-12 col-md-6 mt-2">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/default_image.png' %}" alt="default image" width="100%">
+                <img src="{% static 'images/default_image.png' %}" alt="default image" class="post-detail_img">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" alt="image of posted location" width="100%">
+                <img src=" {{ post.featured_image.url }}" alt="image of posted location" class="post-detail_img">
                 {% endif %}
             </div>
 
@@ -22,7 +22,7 @@
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post title goes in these h1 tags -->
-                <h3 class="post-title">{{ post.location }}</h1>
+                <h3 class="post-title">{{ post.location }}</h3>
                     <!-- Post author goes before the | the post's created date goes after -->
                     <p class="post-subtitle">Posted by: {{ post.author | title }}
                         <a href="{% url 'profile_detail' post.author.username %}">View Profile</a>
@@ -125,7 +125,6 @@
                 <div class="row text-nowrap">
 
                     <div class="col-2">
-                        <strong>
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
@@ -143,7 +142,6 @@
 
                             </form>
                             <span class="text-secondary">{{ post.number_of_likes }} </span>
-                        </strong>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}

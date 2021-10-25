@@ -9,9 +9,9 @@
     <div class="mt-2">
         <!-- The featured image URL goes in the src attribute -->
         {% if "placeholder" in profile.featured_image.url %}
-        <img src="{% static 'images/no_user_image.jpg' %}" alt="No photo available image " width="100%">
+        <img src="{% static 'images/no_user_image.jpg' %}" alt="No photo available image " class="post-detail_img">
         {% else %}
-        <img src=" {{ profile.featured_image.url }}" alt="user's profile image" width="100%">
+        <img src=" {{ profile.featured_image.url }}" alt="user's profile image" class="post-detail_img">
         {% endif %}
     </div>
 
