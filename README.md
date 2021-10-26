@@ -161,7 +161,7 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   Database schema for this site
 
   <details><summary>Database schema</summary>
-      <img src="static/documentation/ss/dbschema.drawio.png" width="500">
+      <img src="static/documentation/ss/dbschema_drawio.png" width="500">
       </details>
 
 ## SURFACE
@@ -224,15 +224,26 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   
   As the username is used to identify the requested profile page, I was unable to render the correct user profile for a while. Eventually I found this solution from stack overflow.  [stack overflow](https://stackoverflow.com/questions/49645721/how-to-use-username-in-detailview-for-django-2-0/49646148)
 
+* Heroku failing to load static files.
+
+  After the site was build and some tests were carried out in the test environment, I have switched the DATABASE setting back to Heroku's PostgreSQL for deployment. Deployment was successful but the statis files failed to load. I have tried to switch DEBUG status False and True also, DISABLE_COLLECTSTATIC to 1 to 0 or even removed, however no attempt worked to load static files. 
+
+### Known error present:
+
+  Heroku failing to load static files. 
+
+  
 
 
 ## Setting up Django environment.
 
-Following additional packages are installed to create this site
+Following additional packages are installed to create this site by using pip3 install
   
   * gunicorn
   * psycopg2
   * dj3-cloudinary-storage
+  * django-crispy-forms
+  * django-allauth
 
 
 
@@ -321,9 +332,18 @@ Heroku Postgres then ensure the changes are reflected in the database
 
   Django automated testing [Django Testing Tutorial](https://www.youtube.com/watch?v=qwypH3YvMKc&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM)
 
+  Udemy [Django tutorial by CODOR](https://www.udemy.com/course/django-3app/learn/lecture/23384214#overview)
+
+  Udemy [Django tutorial by startcode](https://www.udemy.com/course/python-django-web/learn/lecture/23845550)
+
+ Tutor support, John, Fatima and Sean for helping me to trouble-shoot some of the issues I encountered.
 
 
 * Images 
   
   * [No photo image](https://icon-library.com/icon/no-photo-available-icon-20.html)
-  * [Other pictures](https://www.pexels.com/)
+  * [Other pictures - pexel.com](https://www.pexels.com/)
+
+
+  ## Acknowledgment
+  I would like to thank my cohort group of coding career for women for sharing all their knowledge and supporting each other. Also a special thanks to our group facilitator Kasia for her endless encouragement and support for us. Her extra effort to get the clarification of the project requirements for us was so valuable.
