@@ -63,13 +63,21 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
   **Navigation menu** - The navigation menu is clear and consistent throughout the site to provide the users for easy navigation
 
-  **Profile Page** - Registered users can share their brief information about themselves for other registered user to view
+  **Landing page** - The landing page has a bfief description of the purpose of the site
 
-  **Post list** - Provide both registered and unregistered user to view the list of the post summaries 
+  **Forum list** - Provide both registered and unregistered user to view the list of the post summaries 
 
   **Post detail page** -  The users who are registered and logged in can view the detailed of the post and interact by making a comment or press Like
 
-  **Admin page** - This page is restricted to the site administrator and is used to approve the posts and comments to ensure all the posts and comments appears in the site is not inappropriate for the safe use.
+  **Member Page** - Registered users can see the list of the registered members
+
+  **Profile Page** - Registered users can share their brief information about themselves for other registered user to view
+
+  **Create/Edit post Page** - Registered users can create a post to share thier experience on a nature trail
+
+  **Delete post Page** - Registered users can delete their own post 
+
+  **Admin page** - This page is restricted to the site administrator and is used to approve the posts and comments for the safe use of the site to ensure all the posts and comments appears in the site is not inappropriate.
 
   **About the site page** – Information on the site provided in this page. Users can find out here which page is accessible for registered members only.
 
@@ -149,7 +157,12 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 
   **Database:**
-  Database schema
+
+  Database schema for this site
+
+  <details><summary>Database schema</summary>
+      <img src="static/documentation/ss/dbschema.drawio.png" width="500">
+      </details>
 
 ## SURFACE
   **Colour Pallette:**
@@ -159,7 +172,9 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 	
   **Typography:**
-  **Effects:**
+
+  Google font *Roboto* and *Lato* was used for this sie
+
 
 ### Technologies
 
@@ -177,8 +192,6 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   * Heroku 
 
 
-
-
 ## Testing
 
 ### Automated testing
@@ -188,7 +201,7 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 ### Manual testing
 
- Each page has been tested to ensure that the links and the contents are properly placed and functioning.
+ In addition to automated testing, each page has been manually tested to ensure that the links and the contents are properly placed and functioning, and all data entry is appropreately handled as expected.
 
 
 ### Errors encountered during development
@@ -207,7 +220,9 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
   I managed to display profile editing page however updating the profile or retrieving the existing profile record was not successful. After contacting the Code Institute’s tutor support, Fatima assisted me to change the function views to different approach which is to use if statement for method==POST and else. This approach successfully retrieved the existing user profile instance and update it as entered in the form.
 
-* Displaying the profile detail page from a link in their own post
+* Displaying the profile detail page from a link in their own post. 
+  
+  As the username is used to identify the requested profile page, I was unable to render the correct user profile for a while. Eventually I found this solution from stack overflow.  [stack overflow](https://stackoverflow.com/questions/49645721/how-to-use-username-in-detailview-for-django-2-0/49646148)
 
 
 
@@ -237,10 +252,17 @@ Heroku Config vars need to be set accordingly including DATABASE_URL and SECRET_
 5. In setting.py file include followings:
 
     import os
+
     import dj_database_url
+
     if os.path.isfile('env.py'):
+
         import env
-    modify SECRET_KEY line to SECRET_KEY = os.environ.get('SECRET_KEY')
+
+    modify SECRET_KEY line to SECRET_KEY = os.
+    environ.get('SECRET_KEY')
+
+
 
     Replace DATABASES as
     DATABASES = {
