@@ -36,12 +36,12 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # ALLOWED_HOSTS = ['tailsontrails.herokuapp.com', 'localhost']
 
 #Setting to accomodate testing on local DB
-development = os.environ.get('DEVELOPMENT', False)
+# development = os.environ.get('DEVELOPMENT', False)
 
-if development:
-    ALLOWED_HOSTS = ['localhost']
-else:
-    ALLOWED_HOSTS = ['tailsontrails.herokuapp.com']
+# if development:
+#     ALLOWED_HOSTS = ['localhost']
+# else:
+ALLOWED_HOSTS = ['tailsontrails.herokuapp.com']
 
 # Application definition
 
@@ -111,21 +111,21 @@ WSGI_APPLICATION = 'tails_on_trails.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-# }
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
-if development:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
+# if development:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
 
 
 # Password validation
