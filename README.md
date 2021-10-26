@@ -95,14 +95,69 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   6.	(SuperUsers) Manage users
 
 ### SKELETON
-  Wireframe:
+  **Wireframe:**
   The mockup for this site was done on Balsamiq Wireframes and can be viewed below
-  === Insert link or image here ===
-  Database:
+  
+  <details><summary>Landing page - Desktop</summary>
+      <img src="static/wireframes/landing_page_dektop.png" width="500">
+      </details>
+
+  <details><summary>Landing page - Mobile</summary>
+      <img src="static/wireframes/landing_page_mobile.png" width="500">
+      </details>
+
+  <details><summary>Post List page - Desktop</summary>
+      <img src="static/wireframes/post_list_desktop.png" width="500">
+      </details>
+
+  <details><summary>Post List page - Mobile</summary>
+      <img src="static/wireframes/post_list_mobile.png" width="500">
+      </details>
+
+  <details><summary>Post Detail page - Desktop</summary>
+      <img src="static/wireframes/post_detail_desktop.png" width="500">
+      </details>
+
+  <details><summary>Post Detail page - Mobile</summary>
+      <img src="static/wireframes/post_detail_mobile.png" width="500">
+      </details>
+
+  <details><summary>Create Post page - Desktop</summary>
+      <img src="static/wireframes/create_post_desktop.png" width="500">
+      </details>
+
+  <details><summary>Create Post page - Mobile</summary>
+      <img src="static/wireframes/creaet_post_mobile.png" width="500">
+      </details>
+
+  <details><summary>Login/Register page - Desktop</summary>
+      <img src="static/wireframes/login_register_desktop.png" width="500">
+      </details>
+
+  <details><summary>Login/Register page - Mobile</summary>
+      <img src="static/wireframes/login_register_mobile.png" width="500">
+      </details>
+
+  <details><summary>Profile page - Desktop</summary>
+      <img src="static/wireframes/profile_desktop.png" width="500">
+      </details>
+
+  <details><summary>Profile page - Mobile</summary>
+      <img src="static/wireframes/profile_mobile.png" width="500">
+      </details>
+
+
+
+  **Database:**
   Database schema
 
 ## SURFACE
-  **Colours:**
+  **Colour Pallette:**
+  ![Colour Palette](static/documentation/ss/color1.png)
+
+  * Color pallette was taken from this site [Inclusive Color Palettes for the Web](https://medium.com/cafe-pixo/inclusive-color-palettes-for-the-web-bbfe8cf2410e)
+
+	
   **Typography:**
   **Effects:**
 
