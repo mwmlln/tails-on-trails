@@ -190,6 +190,7 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   * GitHub 
   * DevTools 
   * Heroku 
+  * WhiteNoise
 
 
 ## Testing
@@ -233,6 +234,19 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   Heroku failing to load static files. 
 
   
+###  Validating code 
+
+All the .py files are validated in the PEP8 online validator.
+
+<details><summary>The result screenshot</summary> <img src="static/documentation/ss/forms_pep8.png"></details> 
+
+At the time of project submission, there were no errors detected in the PEP8 validator.
+
+No errors were returned when passing through the official [W3C validator](https://validator.w3.org/)
+
+
+
+No errors were found when passing through the official (Jigsaw) validator [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
 
 
 ## Setting up Django environment.
