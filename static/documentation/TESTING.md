@@ -43,5 +43,14 @@ Here is the steps taken to enable testing in the development environment.
     python3 manage.py migrate
 
 
+### Automated Testing
+
+Django's Unittest is used to test the site to ensure the site displays appropriate response and render correct templates.
+Test files can be found under forum/tests directory.
+
+
+
+**Note:** some of the local development enviroment setting in settings.py is left commented out as there may be a need to uncomment for futher testing purpose.
+
 
   [<<< Back to README](../../README.md)
