@@ -6,14 +6,15 @@ Tails on Trails is a website to provide registered users to share information on
 
 Mock up screenshot will be inserted here.
 
-This site is created as a portfolio project for Code Institute's Software Development course. Please note that the course duration for my group, coding career for women is shortened by 3 months.
+This site is created as a portfolio project for Code Institute's Software Development course. Please note that the course duration for my group, coding career for women, is shortened by 3 months.
 
 ## The purpose of this site 
 
 This site is created to share/seek the information about dog-friendly nature trails in Ireland.
-There are numerous nature trails and their information widely available online however there are not as many information about the suitability of the walk with man’s best friend.
-The information on dog-friendly nature trails is not easy to find at present so here I created a forum to share the information and experience of the nature walk with dogs.
-This site is mainly intended for registered users however unregistered guest users can view the summary of the posts. The reason for this is to give unregistered user a chance to preview the service before they make a decision whether or not the site is suited for their needs. 
+There are numerous nature trails accessible in convenience and information on them is widely available online, however there is a lack of information about the suitability of the walk with man’s best friend- the dog. 
+The information on dog-friendly nature trails is not easy to find at present, so here I created a forum to share the information and experience of the nature walks with dogs.
+
+This site is mainly intended for registered users, however unregistered guest users can view the summary of all posts. The reason for this is to give any unregistered user a chance to preview the service before they make a decision whether or not this site is suited for their needs. 
 
 
 ## User Experience
@@ -22,40 +23,40 @@ This site is mainly intended for registered users however unregistered guest use
 
 Isseu No. | Title | User story | Acceptance criteria | Implemented
 ----------|-------|------------|---------------------|-------
-#01 | Create Landing page | As a Site owner I can provide clear purpose of the site so that new and returning users know what the web site is about and how to use it | State clear purpose of the site in the page and no confusing elementsfor site visitors | [x]
-#02 | Account registration | As a Site User I can register an account so that I can comment and like | Secure and easy account registration page and logout button made available once logged in | [x]
-#03 | Create post | As a registered user I can create a post and publish it so that I can share an information to others |  For minimum implementation, admin user can create a post by using admin page. Ideally registered users can create posts pending approval from admin user. | [x]
+#01 | Create Landing page | As a Site owner I can provide clear purpose of the site so that new and returning users know what the web site is about and how to use it | State clear purpose of the site in the page and no confusing elements for site visitors | [x]
+#02 | Account registration | As a Site User I can register an account so that I can comment and like | Secure, easy account registration page and logout button made available once logged in | [x]
+#03 | Create post | As a registered user, I can create a post and publish it so that I can share information to others |  For minimum implementation, admin user can create a post by using admin page. Ideally, registered users can create posts pending approval from admin user. | [x]
 #04 | Manage post | As a Site Admin I can create, read, update and delete posts so that I can manage forum content | Admin user can manage the status of the posts and comments for the safe use of the site | [x]
-#05 | Site pagination | As a Site User I can view a paginates list of posts so that easily select a post to view | Preset number of posts to display in page to avoid too much scrolling. | [x]
+#05 | Site pagination | As a Site User I can view a paginates list of posts so that I can easily select a post to view | Preset number of posts to display in page to avoid too much scrolling. | [x]
 #06 | Approve Post | As a Site Admin I can approve or disapprove posts so that I can filter out objectionable comments | Preset the new post to post status and only allow to  display the post with approved status | [x]
-#07 | View post list | As a Site user I can view a list of the posts so that I can select | Both registered and non-registered users can view the summary of all approved posts | [x]
+#07 | View post list | As a Site user I can view a list of the posts in order that I can select | Both registered and non-registered users can view the summary of all approved posts | [x]
 #08 | Open a post | As a Site User I can click on a post so that I can read the full content of the post | Only registered users can open an individual post detail and view/create a comment or press Likes  | [x]
-#09 | Comment on a post | As a Site User I can leave comments on a post so that I can be involved in the conversation | Only registered user can leave comments and only approved comments can be displayed  | [x]
-#10 | View comments | As a Site User / Admin I can view comments on an individual post so that I can read the conversation | Comments displays on a page that only registered users have access to. | [x]
+#09 | Comment on a post | As a Site User I can leave comments on a post so that I can be involved in the conversation | Only registered users can leave comments and only approved comments can be displayed  | [x]
+#10 | View comments | As a Site User / Admin I can view comments on an individual post so that I can read the conversation | Comments are displayed on a page that only registered users have access to. | [x]
 #11 | Approve comments | As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments | Ensure that new comments are set to False for approval so that Admin user can approve upon review  | [x]
-#12 | Like/Unlike | As a Site User I can like or unlike a post so that I can interact with the content | Only registered user has access to the button and they can remove Like by pressing the button again  | [x]
+#12 | Like/Unlike | As a Site User I can like or unlike a post so that I can interact with the content | Only registered users have access to the button and they can remove a like by pressing the button again  | [x]
 #13 | View Likes | As a Site User / Admin I can view the number of likes on each post so that I can see which is the most popular or viral | Number of the Likes counted correctly  | [x]
 #14 | Uploading the image | As a registered site user I would like to include an image/images to my post so that I can make more visual impact on my post | Image file uploaded to Cloudinary and render in the corresponding post and profile  | [x]
 #15 | Filter on posts | As a site user, I would like to filter the posts so that I can see only the lists of posts that I am interested in | Not finalised as this is an extra feature to the site | [ ]
-#16 | View profile | As a registered site user, I would like to view the post creators profile page so that I can find out more about the author of the post | Ensure that  only registered users can view the profiles  | [x]
-#17 | Location on map | As a site user I would like to see the location of the post on the map so that I can find out the exact location if I want to visit there | Not finalised as this is an extra feature to the site | [ ]
-#18 | Add email authentication | As a site owner, I would like to send a registration link to user’s email in order for the users to complete the registration so that I can verify user's email is legit | Not finalised as this is an extra feature to the site | [ ]
-#19 | Contact page | As a site user I would like to be able to contact the site owner so that I can express my opinion or make queries about the site | Not finalised as this is an extra feature to the site | [ ]
-#20 | About the site | As a user I can find the information about the site so that I can quickly familiarize the use of the site | About the site information should be accessible from every page within the site  | [x]
-#21 | Site works as intended- testing | As a site owner I can make sure that site works throughout as intended so that I can provide a reliable service to users | Acceptance criteria: Automated testing added and successfully runs in addition to manual testing  | [x]
+#16 | View profile | As a registered site user, I would like to view the creator of a post's profile page so that I can find out more about the author of the post | Ensure that only registered users can view the profiles  | [x]
+#17 | Location on map | As a site user I would like to see the location of a post on the map so that I can find out the exact location if I wish to visit there | Not finalised as this is an extra feature to the site | [ ]
+#18 | Add email authentication | As a site owner, I would like to send a registration link to any user’s email in order for them to complete the registration, so that I can verify any user's email is legit | Not finalised as this is an extra feature to the site | [ ]
+#19 | Contact page | As a site user, I would like to be able to contact the site owner so that I can express my opinion or make queries about the site | Not finalised as this is an extra feature to the site | [ ]
+#20 | About the site | As a user, I can easily find information about the site so that I can quickly familiarize the use of this page | 'About the site' information should be accessible from every page within the site  | [x]
+#21 | Site works as intended- testing | As a site owner I can make sure that site works as intended so that I can provide a reliable service to users | Acceptance criteria: Automated testing added and successfully runs in addition to manual testing  | [x]
 
 
 
 ### STRATEGY
 
 * Focus:
-  The focus of this project is to provide a safe information sharing space for dog owners who would like to gain/share the knowledge of dog-friendly nature trails available in Ireland
+  The focus of this project is to provide a safe information, sharing space for dog owners who would like to gain/share knowledge of any dog-friendly nature trails available in Ireland
 
 * Definition:
-  Tails on Trails is a forum like web site for the registered member to share the information and experience of the nature trails in Ireland
+  Tails on Trails is a forum-like web site for a registered member to share the information and experience of any given nature trails in Ireland
 
 * Value:
-  The registered users can make posts about their information on dog-friendly nature trails. They can also view on other member's posts and communicate by leaving comments and press Likes.
+  The registered users can make posts about their information on dog-friendly nature trails. They can also view on other member's posts and communicate by leaving comments and likes.
 
 ### SCOPE
 
@@ -63,42 +64,42 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
   **Navigation menu** - The navigation menu is clear and consistent throughout the site to provide the users for easy navigation
 
-  **Landing page** - The landing page has a bfief description of the purpose of the site
+  **Landing page** - The landing page has a brief description of the purpose of the site
 
-  **Forum list** - Provide both registered and unregistered user to view the list of the post summaries 
+  **Forum list** - Provides both registered and unregistered users to view the list of the post summaries 
 
-  **Post detail page** -  The users who are registered and logged in can view the detailed of the post and interact by making a comment or press Like
+  **Post detail page** -  The users who are registered and logged in can view the details of a post and interact by making a comment or leaving a like
 
-  **Member Page** - Registered users can see the list of the registered members
+  **Member Page** - Registered users can see the list of all the registered members
 
-  **Profile Page** - Registered users can share their brief information about themselves for other registered user to view
+  **Profile Page** - Registered users can share brief information about themselves for other registered user to view
 
-  **Create/Edit post Page** - Registered users can create a post to share thier experience on a nature trail
+  **Create/Edit post Page** - Registered users can create a post to share their experience on a nature trail
 
   **Delete post Page** - Registered users can delete their own post 
 
-  **Admin page** - This page is restricted to the site administrator and is used to approve the posts and comments for the safe use of the site to ensure all the posts and comments appears in the site is not inappropriate.
+  **Admin page** - This page is restricted to the site administrator and is used to approve the posts and comments for the safe use of the site and ensure that all the posts and comments appearing in the site is not inappropriate.
 
-  **About the site page** – Information on the site provided in this page. Users can find out here which page is accessible for registered members only.
+  **About the site page** – Information on the site is provided on this page. Users can find out here which page is accessible for registered members only.
 
  **Planned Features:**
   * The site should be responsive and user-friendly on all devices.
   * Intuitive and user-friendly navigation
   * Intuitive and user-friendly layout
-  * There should be an about page to states which information is accessible for registered and unregistered users
-  * The landing page should provide clear purpose of the website for any site vistors
+  * There should be an 'about page' to state which information is accessible for registered and unregistered users
+  * The landing page should provide a clear purpose of the website for any site vistors
   * Users should be able to easily register/login/logout
-  * Only registered user can view the details of the posts and leave comment and press Likes
+  * Only registered user can view the details of the posts and leave comment and likes
   * Unregistered users can view the post lists that only provide the summary of the posts
-  * Registered users can see the location of the posts
+  * Registered users can see the location of the nature trails mentioned in a given post
 
 ### Structure
-  1.	The site visitor will first be presented with landing page where they can read the purpose for this site. They get a choice to register first or view the forum page by pressing the button. 
-  2.	In the Forum page both registered and unregistered site visitors can view the list of the posts but only registered users can open the post detail page by clicking on the button. For unregistered users the button to open the post detail page is not visible to them. 
-  3.	The Profile page will have image and a brief introduction on the member and their beloved dogs. This page is only available to registered users.
-  4.	The create post page is accessible for registred users only. This page can be opened by clicking the Create a Post button in the navigation bar which is only visible for registered user 
-  After creating the post, Admin user need to approve it before the post displays in the site.
-  Users can edit thier own posts by clinking the Edit link located in their post area which is only visible to the post owners.
+  1.	The site visitor will first be presented with the landing page where they can read the purpose of this site. They get a choice to register first or view the forum page by pressing the button. 
+  2.	In the Forum page, both registered and unregistered site visitors can view the list of the posts, but only registered users can open the post detail page by clicking on the button. For unregistered users, the button to open the post's detail page is not visible. 
+  3.	The Profile page will have an image and a brief introduction on the member and their beloved dogs. This page is only available to registered users.
+  4.	The create post page is accessible for registred users only. This page can be opened by clicking the 'Create a Post' button in the navigation bar which is only visible for a registered user 
+  After creating the post, Admin user must approve it before the post is displays on the site.
+  Users can edit their own posts by clinking the Edit link located in the post area which is only visible to the owner of the post.
   5.	(SuperUsers) Approve posts and comments
   6.	(SuperUsers) Manage users
 
@@ -202,15 +203,15 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 ### Manual testing
 
- In addition to automated testing, each page has been manually tested to ensure that the links and the contents are properly placed and functioning, and all data entry is appropreately handled as expected.
+ In addition to automated testing, each page has been manually tested to ensure that the links and the contents are properly placed and functioning, and that all data entry is appropreately handled as expected.
 
 
 ### Errors encountered during development
 
 * Editing post page not displaying:
-  The links to edit post page was added in the forum posts and made only visible for the post author, however clicking the link threw 404 error.
+  The links to the edit post page was added in the forum posts and made only visible for the post author, however clicking the link threw 404 error.
   Issue was caused by request user and author not matching, resulting the Http404 raised in the views.py.
-  John in Tutor support in Code Institute helped me tackle this issue and suggested few ways to narrow down the cause and approaches to fix it. The successful attempt was to place resuest.user first in the if statement. Here is the problem part of the code, commentd out part shown unsuccessful attempt and final solution which I probably would never have come up by myself in time.
+  John in Tutor support in 'Code Institute' helped me tackle this issue and suggested few ways to narrow down the cause and gave me some approaches on how to fix it. The successful attempt was to place resuest.user first in the 'if statement'. Here is the problem part of the code, commented out part shown unsuccessful attempt and final solution which I probably would never have come up by myself in time.
 
     <details><summary>Post.author and request.user not matching error</summary>
       <img src="static/documentation/ss/404error_with_request_user.png" width="500">
@@ -219,7 +220,7 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 * Updating profile page failed to retrieve user instance and update the records.
 
-  I managed to display profile editing page however updating the profile or retrieving the existing profile record was not successful. After contacting the Code Institute’s tutor support, Fatima assisted me to change the function views to different approach which is to use if statement for method==POST and else. This approach successfully retrieved the existing user profile instance and update it as entered in the form.
+  I managed to display the profile editing page however updating the profile or retrieving the existing profile record was not successful. After contacting the Code Institute’s tutor support, Fatima assisted me to change the function views to a different approach which is to use 'if statement' for method==POST and else. This approach successfully retrieved the existing user profile instance and updated it as entered in the form.
 
 * Displaying the profile detail page from a link in their own post. 
   
@@ -227,7 +228,7 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 * Heroku failing to load static files.
 
-  After the site was build and some tests were carried out in the test environment, I have switched the DATABASE setting back to Heroku's PostgreSQL for deployment. Deployment was successful but the statis files failed to load. I have tried to switch DEBUG status False and True also, DISABLE_COLLECTSTATIC to 1 to 0 or even removed, however no attempt worked to load static files. 
+  After the site was built and some tests were carried out in the test environment, I had switched the DATABASE setting back to Heroku's PostgreSQL for deployment. Deployment was successful but the statis files failed to load. I had tried to switch DEBUG status False and True also, DISABLE_COLLECTSTATIC to 1 to 0 or even removed, however no attempt worked to load static files. 
 
 ### Known error present:
 
@@ -263,15 +264,15 @@ Following additional packages are installed to create this site by using pip3 in
 
 
 ## Deployment
-Here are the deployment procesure I have taken to deploy this project on Heroku
+Here is the deployment procedure  that I have taken to deploy this project on Heroku
 
-1. In the Heroku dashboard, click new then enter the app name and specipy the region.
+1. In the Heroku dashboard, click new, then enter the app name and specify the region.
 
-2. In Add-on section in the resources tab, search postgres then select Heroku Postgres and submit order from button in the popup window.
+2. In the Add-on section in the resources tab, search postgres, then select Heroku Postgres and submit order from button in the popup window.
 
 3. In the setting tab, click on Reveal Config Vars button then copy the value for DATABASE_URL key.
 
-4. Create env.py directly under the repo directory same lavel as manage.py and make sure the file name is included in .gitignore as this is a setting for local development site in Gitpod
+4. Create env.py directly under the repo directory same lavel as manage.py and make sure the file name is included in .gitignore as this is a setting for local development site in Gitpod. 
 Heroku Config vars need to be set accordingly including DATABASE_URL and SECRET_KEY
 
 5. In setting.py file include followings:
@@ -350,7 +351,7 @@ Heroku Postgres then ensure the changes are reflected in the database
 
   Udemy [Django tutorial by startcode](https://www.udemy.com/course/python-django-web/learn/lecture/23845550)
 
- Tutor support, John, Fatima and Sean for helping me to trouble-shoot some of the issues I encountered.
+Gratitude to Tutor support, John, Fatima and Sean for helping me to trouble-shoot some of the issues I encountered.
 
 
 * Images 
