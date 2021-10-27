@@ -2,9 +2,21 @@
 {% load static %}
 
 {% block content %}
+
+{% if messages %}
+<div class="alert alert-secondary alert-dismissible" role="alert">
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.success %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
 <div class="container-fluid">
     <div class="row hero-container">
-        <div class="hero-text align-middle ms-3">
+        <div class="hero-text align-middle ms-3 me-1">
             <div class="display-4 fw-bold">Find your ideal nature trail</div>
             <p>with man's best friend</p>
         </div>
