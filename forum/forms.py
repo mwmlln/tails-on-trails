@@ -44,7 +44,7 @@ class CreatePostForm(forms.ModelForm):
             'breed_big', 'breed_mid', 'breed_sml')
 
     def clean_title(self):
-        """checks if title entered already exisits already"""
+        """checks if title entered exisits already"""
         cleaned_data = super().clean()
         title = cleaned_data.get('title')
         is_exists = Post.objects.filter(title=title).first()
@@ -94,14 +94,17 @@ class ProfileEditForm(forms.ModelForm):
     featured_image = forms.FileField(label='Image')
     about_me = forms.CharField(
                             label='About Me:',
+                            required=False,
                             max_length=300,
                             widget=forms.Textarea)
     about_dog = forms.CharField(
                             label='About My Dog(s):',
+                            required=False,
                             max_length=300,
                             widget=forms.Textarea)
     favorite_location = forms.CharField(
                                     label='My Favorite Location:',
+                                    required=False,
                                     max_length=100,
                                     widget=forms.Textarea, )
 
