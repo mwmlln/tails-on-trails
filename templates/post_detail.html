@@ -24,8 +24,9 @@
                 <!-- Post title goes in these h1 tags -->
                 <h3 class="post-title">{{ post.location }}</h3>
                     <!-- Post author goes before the | the post's created date goes after -->
-                    <p class="post-subtitle">Posted by: {{ post.author | title }}
-                        <a href="{% url 'profile_detail' post.author.username %}">View Profile</a>
+                    <p class="post-subtitle">Posted by: <strong> {{ post.author | title }} </strong>
+                        <a class="btn btn-primary btn-sm" href="{% url 'profile_detail' post.author.username %}"
+                                    role="button">View Profile</a>
                     </p>
                     <p>Created :{{ post.created_on }}</p>
                     <p>Difficulty:
@@ -104,7 +105,8 @@
                     </p>
                     {% if post.author.id == user.id %}
                     <div>
-                        <a href="{% url 'post_edit' post.slug %}">Edit</a>
+                        <a class="btn btn-outline-dark btn-sm" href="{% url 'post_edit' post.slug %}"
+                                    role="button">Edit the post</a>
                     </div>
                     {% endif %}
             </div>
