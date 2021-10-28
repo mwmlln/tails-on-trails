@@ -20,6 +20,21 @@ This site is mainly intended for registered users, however unregistered guest us
 
 ## User Experience
 
+### User Goals
+
+* View, create, edit and delete post of their own on the website.
+* View other user's posts and leave comments and Likes.
+* Edit your own profile
+* View other member's profiles
+
+### Site Owners Goals
+
+ In addition to user goal's following need to be achieved in order to provide safe forum site
+
+ * Non-registered site visitors have restricted access to the appropriate pages
+ * New posts and comments need to be approved before displayed on the site for safe use.
+ * Control the users, posts, comment for any inappropriate use of the site
+
 ### USER STORIES
 
 Isseu No. | Title | User story | Acceptance criteria | Implemented
@@ -195,6 +210,62 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   * WhiteNoise
 
 
+## Existing Features
+
+ ### Elements on every page
+ 
+  **Navbar**
+  Consistent navbar is present for all pages within the site.
+  Navbar has the site logo to the left. 
+  * For site visitors who are not logged in, following are present in the navbar.
+    * Home and Forum links
+    * Buttons for Register and Login
+  * For logged in users following are present
+    * Home, Forum and Members links
+    * Buttons for logout, create a Post and thier own username which opens their own profile to edit
+
+  **Footer**
+  Consistent footer is present in all pages within the site which includes link to GitHub and About the site page
+  
+  **Landing Page**
+  Followed by the large hero image with a dog and his owner image, there is a brief introduction on the site and its purpose.
+  below that is a large button which will open post list page.
+
+  **Post List page**
+  This page is available to both site visitor without log-in and registered users who are logged in.
+  All the posts which are subject to  review and approval before displayed in this page.
+  Pagination is in place for 6 posts per page to avoid loading time issues.
+  All the posts have buttons for View the post detail page which is only visible for users who are logged in.
+  Edit button is also present in the post list if the post was created by the user who is viewing the page.
+
+  **Post Detail page**
+
+  **Create a Post page**
+
+  **Edit post page**
+
+  **Delete Post page**
+
+  **Members Page**
+
+  **Profile Detail page** 
+
+  **Profile Edit page**
+
+  **About the Site page**
+
+  **Register page**
+
+  **Login page**
+
+  **Logout page**
+  
+
+
+
+
+  ===== More Features ========
+
 ## Testing
 
 ### Automated testing
@@ -206,6 +277,8 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
  In addition to automated testing, each page has been manually tested to ensure that the links and the contents are properly placed and functioning, and that all data entry is appropreately handled as expected.
 
+
+[Link Checker](https://validator.w3.org/checklink) was used to ensure that there is no broken link within the site
 
 ### Errors encountered during development
 
@@ -244,11 +317,19 @@ All the .py files are validated in the PEP8 online validator.
 
 At the time of project submission, there were no errors detected in the PEP8 validator.
 
-No errors were returned when passing through the official [W3C validator](https://validator.w3.org/)
+No errors were returned when passing through the official W3C validator
+
+[The result link here ](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftailsontrails.herokuapp.com%2F)
+
+<details><summary>The result screenshot - html</summary> <img src="static/documentation/ss/html_validation.png"></details> 
 
 
+No errors were found when passing through the official (Jigsaw) validator 
 
-No errors were found when passing through the official (Jigsaw) validator [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
+[The result link here ](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftailsontrails.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+<details><summary>The result screenshot - css</summary> <img src="static/documentation/ss/css_validation.png"></details> 
+
 
 
 ## Setting up Django environment.
@@ -352,7 +433,9 @@ Heroku Postgres then ensure the changes are reflected in the database
 
   Udemy [Django tutorial by startcode](https://www.udemy.com/course/python-django-web/learn/lecture/23845550)
 
-Gratitude to Tutor support, John, Fatima and Sean for helping me to trouble-shoot some of the issues I encountered.
+  My hackathon team Diverspect for giving me the idea for the forum [Diverspect](https://github.com/Gwen-Bradbury/trust-in-soda-hackathon)
+
+  Also gratitude to Tutor support, John, Fatima and Sean for helping me to trouble-shoot some of the issues I encountered.
 
 
 * Images 
