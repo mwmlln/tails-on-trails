@@ -7,7 +7,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('posts/', views.PostList.as_view(), name='posts'),
     path('profile/', views.ProfileList.as_view(), name='profile'),
-    path('edit_profile', views.edit_profile, name='profile_edit'),
+    path('edit_profile/', views.edit_profile, name='profile_edit'),
     path(
       'profile/<str:username>',
       views.ProfileDetail.as_view(),
