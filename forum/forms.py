@@ -44,7 +44,7 @@ class CreatePostForm(forms.ModelForm):
             'breed_big', 'breed_mid', 'breed_sml')
 
     def clean_title(self):
-        """checks if title entered exisits already"""
+        """checks if title entered exists already"""
         cleaned_data = super().clean()
         title = cleaned_data.get('title')
         is_exists = Post.objects.filter(title=title).first()
