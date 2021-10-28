@@ -4,7 +4,8 @@ Tails on Trails is a website to provide registered users to share information on
 
 [View the live project here.](https://tailsontrails.herokuapp.com/)
 
-Mock up screenshot will be inserted here.
+<img src="static/images/mockup1.png" width="500">
+
 
 This site is created as a portfolio project for Code Institute's Software Development course. Please note that the course duration for my group, coding career for women, is shortened by 3 months.
 
