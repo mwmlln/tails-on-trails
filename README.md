@@ -429,6 +429,8 @@ Heroku Postgres then ensure the changes are reflected in the database
 
   Django automated testing [Django Testing Tutorial](https://www.youtube.com/watch?v=qwypH3YvMKc&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM)
 
+  Setting.py lines too long for PEP8 [Django Testing Tutorial](https://code.djangoproject.com/ticket/28163)
+
   Udemy [Django tutorial by CODOR](https://www.udemy.com/course/django-3app/learn/lecture/23384214#overview)
 
   Udemy [Django tutorial by startcode](https://www.udemy.com/course/python-django-web/learn/lecture/23845550)
