@@ -130,4 +130,5 @@ textarea {
 
 .img-404 {
   max-width: 80vw;
+  overflow-x: hidden;
 }
