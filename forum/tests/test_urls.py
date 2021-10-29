@@ -1,8 +1,7 @@
-from django.test import TestCase, SimpleTestCase
-from django.contrib.auth import get_user_model
-from django.contrib.auth.models import User
+from django.test import SimpleTestCase
 from django.urls import reverse, resolve
-from forum.views import (index, about, PostList, ProfileList, edit_profile,
+from forum.views import (
+                        index, about, PostList, ProfileList, edit_profile,
                         PostDetail, create_post, delete_post, edit_post,
                         ProfileDetail
                         )
@@ -60,6 +59,5 @@ class TestUrls(SimpleTestCase):
 
     def test_post_detailt_url(self):
         """Testing redirect to post detail"""
-        url = reverse('post_detail', args=['slug-name'] )
+        url = reverse('post_detail', args=['slug-name'])
         self.assertEqual(resolve(url).func.view_class, PostDetail)
-

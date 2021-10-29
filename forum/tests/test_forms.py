@@ -1,6 +1,5 @@
-from django.test import SimpleTestCase, TestCase
-from forum.forms import CommentForm, CreatePostForm, EditPostForm
-from forum.forms import DeletePostForm,  ProfileEditForm, Comment
+from django.test import TestCase
+from forum.forms import CommentForm, CreatePostForm, ProfileEditForm
 
 
 class TestCreatePostForm(TestCase):
@@ -13,10 +12,10 @@ class TestCreatePostForm(TestCase):
 
     def test_excerpt_field_is_not_required(self):
         form = CreatePostForm({
-                            'title': 'test title', 
+                            'title': 'test title',
                             'slug': 'test-title',
                             'author': 'user_a',
-                            'location' : 'test',
+                            'location': 'test',
                             'content': 'test',
                             'excerpt': ''})
         self.assertTrue(form.is_valid())
@@ -33,10 +32,10 @@ class TestEditPostForm(TestCase):
 
     def test_excerpt_field_is_not_required(self):
         form = CreatePostForm({
-                            'title': 'test title', 
+                            'title': 'test title',
                             'slug': 'test-title',
                             'author': 'user_a',
-                            'location' : 'test',
+                            'location': 'test',
                             'content': 'test',
                             'excerpt': ''})
         self.assertTrue(form.is_valid())
@@ -44,19 +43,7 @@ class TestEditPostForm(TestCase):
 
 class TestProfileEditForm(TestCase):
 
-    # def test_all_fields_not_required(self):
-    #     form = ProfileEditForm({
-    #                         'featured_image': '',
-    #                         'about_me': '',
-    #                         'about_dog': '',
-    #                         'favorite_location': '',})
-    #     self.assertTrue(form.is_valid()) 
-
     def test_fields_are_explicit_in_form_metaclass(self):
         form = ProfileEditForm()
         self.assertEqual(form.Meta.fields, ('featured_image', 'about_me',
                                             'about_dog', 'favorite_location'))
-
-
-
-

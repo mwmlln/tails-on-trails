@@ -4,16 +4,8 @@ from ..models import Post, Profile
 
 User = get_user_model()
 
+
 class TestModels(TestCase):
-    
-    # def test_is_empty(self):
-    #     """
-    #     Ensuring there is no record in the table
-    #     Only used for initail testing stage as the testing
-    #     """  
-    #     saved_posts = Post.objects.all()
-    #     saved_profile = Profile.objects.all()
-    #     self.assertEqual(saved_posts.count(), 0)
 
     def setUp(self):
         self.user_a = User(username='testuser')
@@ -26,13 +18,12 @@ class TestModels(TestCase):
         """Ensure that profile is created upon user register"""
         self.assertEqual(saved_profile, 1)
         self.post1 = Post.objects.create(
-                                        title = 'test title1',
-                                        location = 'somewhere',
-                                        author = self.user_a,
-                                        excerpt = 'test excerpt',
-                                        content = 'test content'
-                                        ) 
-
+                                        title='test title1',
+                                        location='somewhere',
+                                        author=self.user_a,
+                                        excerpt='test excerpt',
+                                        content='test content'
+                                        )
 
     def test_user_and_profile_create(self):
         """Ensure user is created and its profile record is genrerated"""
@@ -83,17 +74,12 @@ class TestModels(TestCase):
         self.assertEquals(self.post1.title, 'New title')
         self.assertEquals(self.post1.location, 'New location')
 
-
-
     def test_profile_edit(self):
         """Generated profile fields have no entry"""
         self.saved_profile = Profile.objects.get(id=1)
-        # Profile content should be empty first
         self.assertEquals(self.saved_profile.about_me, '')
         self.saved_profile.about_me = 'test introduction'
         self.saved_profile.about_dog = 'dog introduction'
         self.saved_profile.save()
         self.assertEquals(self.saved_profile.about_me, 'test introduction')
         self.assertEquals(self.saved_profile.about_dog, 'dog introduction')
-
-
