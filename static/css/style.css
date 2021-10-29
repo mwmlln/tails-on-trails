@@ -60,7 +60,7 @@ footer{
 .hero-container {
   height: 80vh;
   /* Commented out due to Heroku CSS issue */
-  background-image: url('/static/images/dog_in_field.jpg');
+  /* background-image: url('{% static "images/dog_in_field.jpg" %}'); */
   /* background-color: var(--gray-color); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -122,4 +122,12 @@ textarea {
 
 .post-detail_img {
   width: 100%;
+}
+
+.messages {
+  list-style: none;
+}
+
+.img-404 {
+  max-width: 80vw;
 }

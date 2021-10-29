@@ -38,10 +38,10 @@ ALLOWED_HOSTS = ['tailsontrails.herokuapp.com', 'localhost']
 #Setting to accomodate testing on local DB
 development = os.environ.get('DEVELOPMENT', False)
 
-# if development:
-#     ALLOWED_HOSTS = ['localhost']
-# else:
-# ALLOWED_HOSTS = ['tailsontrails.herokuapp.com']
+if development:
+    ALLOWED_HOSTS = ['localhost']
+else:
+    ALLOWED_HOSTS = ['tailsontrails.herokuapp.com']
 
 # Application definition
 
