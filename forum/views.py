@@ -136,7 +136,7 @@ def delete_post(request, slug):
     if request.user != post.author:
         raise Http404
     delete_post_form = DeletePostForm(request.POST or None)
-    if delete_post_form.is_valid():    # checking csrf token
+    if delete_post_form.is_valid():
         post.delete()
         messages.success(request, 'Your post is successfully deleted')
         return redirect('posts')
