@@ -233,8 +233,8 @@ Throughout development process of this site, agile development approach was take
  
   **Navbar**
 
-    Consistent navbar is present for all pages within the site.
-    Navbar has the site logo to the left. 
+  Consistent navbar is present for all pages within the site.
+  Navbar has the site logo to the left. 
     * For site visitors who are not logged in, the following are present in the navbar:
       * Home and Forum links
       * Buttons for Register and Login
@@ -248,7 +248,7 @@ Throughout development process of this site, agile development approach was take
 
   **Footer**
 
-    Consistent footer is present in all pages within the site which includes ‘link to GitHub’ and ‘About the site page’
+  Consistent footer is present in all pages within the site which includes ‘link to GitHub’ and ‘About the site page’
 
   <details><summary>Footer</summary>
     <img src="static/documentation/ss/footer_ss.png" width="500">
@@ -256,8 +256,8 @@ Throughout development process of this site, agile development approach was take
   
   **Landing Page**
 
-    Followed by the large hero image with a dog and his owner image, there is a brief introduction on the site and its purpose.
-    Below that is a large button which will open the post list page.
+  Followed by the large hero image with a dog and his owner image, there is a brief introduction on the site and its purpose.
+  Below that is a large button which will open the post list page.
 
   <details><summary>Landing Page</summary>
       <img src="static/documentation/ss/index.png" width="500">
@@ -479,21 +479,14 @@ Heroku Config vars need to be set accordingly including DATABASE_URL and SECRET_
 5. In setting.py file include followings:
 
     import os
-
     import dj_database_url
-
     if os.path.isfile('env.py'):
-
         import env
-
     modify SECRET_KEY line to SECRET_KEY = os.
     environ.get('SECRET_KEY')
 
-
-
     Replace DATABASES as
     DATABASES = {
-
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 

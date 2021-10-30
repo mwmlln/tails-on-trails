@@ -132,6 +132,7 @@ Visual inspections carried out to ensure that restricted page links or buttons a
 Visual inspections are carried out so that no links to the post detail page or edit post are present in each post in the list. 
 Ensure that all the posts displayed in the page are approved posts and information displayed is correct as created post
 Pagination is tested by adding a numbers of posts to ensure the posts displayed in one page is 6 and rest will be displayed by previous button at the end of the page 
+
 **For registered and logged in users**
 
 Ensure the post list is only displaying approved posts with correct information entered by the user.
@@ -184,33 +185,48 @@ Delete this post link opens Delete post page
 **For site visitor who has not logged in**
 
 Access is attempted by copying the page address to ensure that the page is not displayed for the site visitors who are not logged in. 404 page returned as expected.
-For registered and logged in users
+
+**For registered and logged in users**
 Cancel and go back to post link opens the post list
 Pressing Confirm Delete button actually deletes the selected post and associated comments then returns post list page with message to notify the user the post is deleted
-Members Page
+
+#### Members Page
 
 **For site visitor who has not logged in**
 
 Access is attempted by copying the page address to ensure that the page is not displayed for the site visitors who are not logged in.
-For registered and logged in users
+
+**For registered and logged in users**
+
 Page displays with each member in a panel with their image, name and button to open their individual profile page.
 Button to open individual profile page opens the profile of the selected member
 Pagination is in place and working as expected which is 8 panels on one page.
-View profile page
-For site visitor who has not logged in
+
+#### View profile page
+
+**For site visitor who has not logged in**
+
 Access is attempted by copying the page address to ensure that the page is not displayed for the site visitors who are not logged in.
-For registered and logged in users
+
+**For registered and logged in users**
+
 Selected user’s profile page displays 
 Back to profile list link opens Member page
-Profile Edit page
-For site visitor who has not logged in
+
+#### Profile Edit page
+
+**For site visitor who has not logged in**
+
 Access is attempted by copying the page address to ensure that the page is not displayed for the site visitors who are not logged in.
-For registered and logged in users
+
+**For registered and logged in users**
 On pressing their username in the navigation bar, their own profile page opens for editing.
 Upload the image works without any issues
 As all the fields are optional there is no error message present
 Successful update will redirect to Post list page with a notification message 
-About the Site page
+
+#### About the Site page
+
 Page displays for any site visitors and information provided is clear
 
 #### Register page
