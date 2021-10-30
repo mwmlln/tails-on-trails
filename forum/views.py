@@ -118,7 +118,11 @@ def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.user != post.author:
         raise Http404
-    edit_post_form = EditPostForm(request.POST or None, instance=post)
+    edit_post_form = EditPostForm(
+                                data=(request.POST or None),
+                                files=(request.FILES or None),
+                                instance=post,
+                                )
     if edit_post_form.is_valid():
         edit_post_form.save()
         messages.success(request, 'Your post is successfully updated')
