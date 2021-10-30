@@ -22,10 +22,18 @@ This site is mainly intended for registered users, however unregistered guest us
 
 ### User Goals
 
-* View, create, edit and delete post of their own on the website.
-* View other user's posts and leave comments and Likes.
-* Edit your own profile
-* View other member's profiles
+**First time site visitors would like to**
+
+ * Find out the purpose of the site and how to use it
+ * See the preview of the service before they decide to register
+
+
+**Returning registered users would like**
+
+  * View, create, edit and delete post of their own on the website.
+  * View other user's posts and leave comments and Likes.
+  * Edit your own profile
+  * View other member's profiles
 
 ### Site Owners Goals
 
@@ -37,7 +45,7 @@ This site is mainly intended for registered users, however unregistered guest us
 
 ### USER STORIES
 
-Isseu No. | Title | User story | Acceptance criteria | Implemented
+Issue No. | Title | User story | Acceptance criteria | Implemented
 ----------|-------|------------|---------------------|-------
 #01 | Create Landing page | As a Site owner I can provide clear purpose of the site so that new and returning users know what the web site is about and how to use it | State clear purpose of the site in the page and no confusing elements for site visitors | [x]
 #02 | Account registration | As a Site User I can register an account so that I can comment and like | Secure, easy account registration page and logout button made available once logged in | [x]
@@ -74,11 +82,16 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 * Value:
   The registered users can make posts about their information on dog-friendly nature trails. They can also view on other member's posts and communicate by leaving comments and likes.
 
+**Agile software development**
+Throughout development process of this site, agile development approach was taken using GitHub functions which are issues, milestones, iterations and Kanaban board.
+
+
 ### SCOPE
 
 **Features:**
 
   **Navigation menu** - The navigation menu is clear and consistent throughout the site to provide the users for easy navigation
+
 
   **Landing page** - The landing page has a brief description of the purpose of the site
 
@@ -224,12 +237,25 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
     * Home, Forum and Members links
     * Buttons for logout, create a Post and thier own username which opens their own profile to edit
 
+    <details><summary>Navbar</summary>
+      <img src="static/documentation/ss/navbar_ss.png" width="500">
+      </details>
+
   **Footer**
   Consistent footer is present in all pages within the site which includes link to GitHub and About the site page
+
+  <details><summary>Footer</summary>
+    <img src="static/documentation/ss/footer_ss.png" width="500">
+    </details>
   
   **Landing Page**
   Followed by the large hero image with a dog and his owner image, there is a brief introduction on the site and its purpose.
   below that is a large button which will open post list page.
+
+  <details><summary>Landing Page</summary>
+      <img src="static/documentation/ss/index.png" width="500">
+      </details>
+  
 
   **Post List page**
   This page is available to both site visitor without log-in and registered users who are logged in.
@@ -238,28 +264,75 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
   All the posts have buttons for View the post detail page which is only visible for users who are logged in.
   Edit button is also present in the post list if the post was created by the user who is viewing the page.
 
+  <details><summary>Post List</summary>
+    <img src="static/documentation/ss/post_list.png" width="500">
+    </details>
+
   **Post Detail page**
 
+  <details><summary>Post Detail</summary>
+    <img src="static/documentation/ss/post_detail.png" width="500">
+    </details>
+
   **Create a Post page**
+  <details><summary>Create a post</summary>
+    <img src="static/documentation/ss/create_post.png" width="500">
+    </details>
 
   **Edit post page**
 
+  <details><summary>Edit a post</summary>
+    <img src="static/documentation/ss/edit_post.png" width="500">
+    </details>
+
   **Delete Post page**
+
+   <details><summary>Delete a post</summary>
+    <img src="static/documentation/ss/delete_post.png" width="500">
+    </details>
 
   **Members Page**
 
+  <details><summary>Member Page</summary>
+    <img src="static/documentation/ss/member_page.png" width="500">
+    </details>
+
+
   **Profile Detail page** 
 
+  <details><summary>Profile Detail Page</summary>
+  <img src="static/documentation/ss/profile_detail.png" width="500">
+  </details>
+
   **Profile Edit page**
+    
+  <details><summary>Profile Edit Page</summary>
+   <img src="static/documentation/ss/edit_profile.png" width="500">
+   </details>
 
   **About the Site page**
+   <details><summary>About the site Page</summary>
+   <img src="static/documentation/ss/about.png" width="500">
+   </details>
 
   **Register page**
 
+  <details><summary>Register Page</summary>
+   <img src="static/documentation/ss/register.png" width="500">
+   </details>
+
+
   **Login page**
+
+   <details><summary>Login Page</summary>
+   <img src="static/documentation/ss/sign_in.png" width="500">
+   </details>
 
   **Logout page**
   
+   <details><summary>Logout Page</summary>
+   <img src="static/documentation/ss/logout.png" width="500">
+   </details>
 
 
 
@@ -270,15 +343,8 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 ### Automated testing
 
-  [Link to the automated testing document](static/documentation/TESTING.md)
+  Both manual and automated testing were carried out to ensure the site works as intended. Testing document can be found here [Link to the testing document](static/documentation/TESTING.md)
 
-
-### Manual testing
-
- In addition to automated testing, each page has been manually tested to ensure that the links and the contents are properly placed and functioning, and that all data entry is appropreately handled as expected.
-
-
-[Link Checker](https://validator.w3.org/checklink) was used to ensure that there is no broken link within the site
 
 ### Errors encountered during development
 
@@ -306,7 +372,9 @@ Isseu No. | Title | User story | Acceptance criteria | Implemented
 
 ### Known error present:
 
-  Heroku failing to load static files. 
+  * Edit post page does not display erroe message for validating form.
+
+  * Edit post page does not allow a file upload
 
   
 ###  Validating code 
@@ -425,9 +493,13 @@ Heroku Postgres then ensure the changes are reflected in the database
 
   Solution for applying login_required to ListView [stack overflow](https://stackoverflow.com/questions/10275164/django-generic-views-using-decorator-login-required)
 
+  Editing post did not allow the image upload [stack overflow](https://stackoverflow.com/questions/57928518/how-to-use-instance-object-with-request-files-and-request-post)
+
+
   [Displaying success meaages in rendered page](https://dot-blog.jp/news/django-messages-frame-work/)
 
   Django automated testing [Django Testing Tutorial](https://www.youtube.com/watch?v=qwypH3YvMKc&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM)
+
 
   Setting.py lines too long for PEP8 [Django Testing Tutorial](https://code.djangoproject.com/ticket/28163)
 
