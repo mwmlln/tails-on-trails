@@ -124,6 +124,11 @@ textarea {
   width: 100%;
 }
 
+.profile-detail_img {
+  max-height: 30vh;
+  margin: auto;
+}
+
 .messages {
   list-style: none;
 }

@@ -37,11 +37,13 @@ This site is mainly intended for registered users, however unregistered guest us
 
 ### Site Owners Goals
 
- In addition to user goal's following need to be achieved in order to provide safe forum site
+  In addition to user goal's following need to achieve in order to provide safe forum site
 
  * Non-registered site visitors have restricted access to the appropriate pages
  * New posts and comments need to be approved before displayed on the site for safe use.
  * Control the users, posts, comment for any inappropriate use of the site
+Existing features
+
 
 ### USER STORIES
 
@@ -125,7 +127,9 @@ Throughout development process of this site, agile development approach was take
 ### Structure
   1.	The site visitor will first be presented with the landing page where they can read the purpose of this site. They get a choice to register first or view the forum page by pressing the button. 
   2.	In the Forum page, both registered and unregistered site visitors can view the list of the posts, but only registered users can open the post detail page by clicking on the button. For unregistered users, the button to open the post's detail page is not visible. 
-  3.	The Profile page will have an image and a brief introduction on the member and their beloved dogs. This page is only available to registered users.
+  3. Post detail page has details of the post, comment made for this post and number of Like button with numbers of user liked this post. This page is users who are logged in only.
+  4.  Member page will have a list of registered members with image and button to open the user's profile page. This page is users who are logged in only.
+  5.	The Profile page will have an image and a brief introduction on the member and their beloved dogs. This page is only available to registered users. This page is users who are logged in only.
   4.	The create post page is accessible for registred users only. This page can be opened by clicking the 'Create a Post' button in the navigation bar which is only visible for a registered user 
   After creating the post, Admin user must approve it before the post is displays on the site.
   Users can edit their own posts by clinking the Edit link located in the post area which is only visible to the owner of the post.
@@ -228,41 +232,44 @@ Throughout development process of this site, agile development approach was take
  ### Elements on every page
  
   **Navbar**
-  Consistent navbar is present for all pages within the site.
-  Navbar has the site logo to the left. 
-  * For site visitors who are not logged in, following are present in the navbar.
-    * Home and Forum links
-    * Buttons for Register and Login
-  * For logged in users following are present
-    * Home, Forum and Members links
-    * Buttons for logout, create a Post and thier own username which opens their own profile to edit
 
-    <details><summary>Navbar</summary>
-      <img src="static/documentation/ss/navbar_ss.png" width="500">
-      </details>
+    Consistent navbar is present for all pages within the site.
+    Navbar has the site logo to the left. 
+    * For site visitors who are not logged in, the following are present in the navbar:
+      * Home and Forum links
+      * Buttons for Register and Login
+    * For logged in users, the following are present
+      * Home, Forum and Members links
+      * Buttons for logout, create a Post and a button with their own username which opens their own profile to edit
+
+  <details><summary>Navbar</summary>
+    <img src="static/documentation/ss/navbar_ss.png" width="500">
+    </details>
 
   **Footer**
-  Consistent footer is present in all pages within the site which includes link to GitHub and About the site page
+
+    Consistent footer is present in all pages within the site which includes ‘link to GitHub’ and ‘About the site page’
 
   <details><summary>Footer</summary>
     <img src="static/documentation/ss/footer_ss.png" width="500">
     </details>
   
   **Landing Page**
-  Followed by the large hero image with a dog and his owner image, there is a brief introduction on the site and its purpose.
-  below that is a large button which will open post list page.
+
+    Followed by the large hero image with a dog and his owner image, there is a brief introduction on the site and its purpose.
+    Below that is a large button which will open the post list page.
 
   <details><summary>Landing Page</summary>
       <img src="static/documentation/ss/index.png" width="500">
       </details>
   
-
   **Post List page**
-  This page is available to both site visitor without log-in and registered users who are logged in.
-  All the posts which are subject to  review and approval before displayed in this page.
-  Pagination is in place for 6 posts per page to avoid loading time issues.
-  All the posts have buttons for View the post detail page which is only visible for users who are logged in.
-  Edit button is also present in the post list if the post was created by the user who is viewing the page.
+
+  This page is available to both site visitors without a log-in and registered users who are logged in.
+ All the posts which are reviewed and approved are listed in this page.
+ Pagination is in place for 6 posts per page to avoid loading time issues.
+ All the posts have buttons to View the post detail page which is only visible for users who are logged in.
+ Edit button is also present in the post list if the post was created by the user who is viewing the page.
 
   <details><summary>Post List</summary>
     <img src="static/documentation/ss/post_list.png" width="500">
@@ -270,16 +277,34 @@ Throughout development process of this site, agile development approach was take
 
   **Post Detail page**
 
+   This page is restricted to users who are registered and logged in.
+   This page consists of a detailed view of the post which includes the content of the post, difficulty level and suitable dog size, in addition to the information displayed in the post list.
+   Also available on this page are other users' comments on this post. Only the approved comments are displayed on this page.
+   There is another function to allow other users to press the Like button and leave a comment regarding the post. The comment entered here need to be reviewed by the site owner before displayed in this post detail page.
+
+
   <details><summary>Post Detail</summary>
     <img src="static/documentation/ss/post_detail.png" width="500">
     </details>
 
   **Create a Post page**
+
+  This page can be accessed by registered users who are logged in. Button link is located in the navbar for easy access to this page once logged in.
+  There are messages to let users know which fields are required to create a post. Title field has to be a unique one, therefore there is a placeholder in the title field with a message ‘Your unique post title’ to advise you to create a unique title.
+  Image upload is available but users can opt not to upload an image if they choose so.
+  Difficulty of the trail and Suitable dog size is a checkbox where users can be left unchecked if chosen.
+  Once the create button is pressed, users will be directed to the post list page and a message to inform the user about the post is displayed below the navbar.
+
   <details><summary>Create a post</summary>
     <img src="static/documentation/ss/create_post.png" width="500">
     </details>
 
   **Edit post page**
+
+  Edit post page is accessed by edit post button which is available in either post list or post detail page for users who are logged in. The button is visible for the user's own post only so that the post can only be edited by its own user or by superuser using the admin page.
+ ll required fields are identical to create post but all the entries of the post are retrieved so that users can edit only the field they wish to update.
+ This page also contains a delete the post link which will display the page to confirm their intention to delete the post.
+
 
   <details><summary>Edit a post</summary>
     <img src="static/documentation/ss/edit_post.png" width="500">
@@ -287,61 +312,90 @@ Throughout development process of this site, agile development approach was take
 
   **Delete Post page**
 
+   When the user presses ‘Delete This Post’ link from the edit post page, this Delete Post page displays and asks the user for confirmation to delete the post. Users can either click the Confirm Delete button or cancel and go back to Posts.
+   When the Confirm Delete button is pressed, the user will be redirected to the Post List page and 	a message will show below the navbar to inform that the post was deleted.
+
+
    <details><summary>Delete a post</summary>
     <img src="static/documentation/ss/delete_post.png" width="500">
     </details>
 
   **Members Page**
 
+   This page can be accessed from the navigation bar menu.
+   The images and usernames of the registered users can be viewed on this page.
+   There is View profile button in very user’s panel which will open the user’s individual  profile page
+
   <details><summary>Member Page</summary>
     <img src="static/documentation/ss/member_page.png" width="500">
     </details>
 
-
   **Profile Detail page** 
+
+  This page can be accessed by the View Profile button in the Members page.
+  The page includes the image that the user posted and some brief description about them if they opted to enter any fields.
+  Each user’s empty profile is created when they register the site so every registered user has their own profile, but they can leave all the fields blank if they wish.
 
   <details><summary>Profile Detail Page</summary>
   <img src="static/documentation/ss/profile_detail.png" width="500">
   </details>
 
   **Profile Edit page**
-    
+
+  This page is displayed when the user clicks the button with their username which is located in the navigation bar.
+  All the fields are optional so they can enter any field they wish to update and leave the rest as blank.
+  Once the profile is updated, the user will be directed to the post list page and a message will be displayed to inform the user that their profile is updated.
+
   <details><summary>Profile Edit Page</summary>
    <img src="static/documentation/ss/edit_profile.png" width="500">
    </details>
 
   **About the Site page**
+
+  This page can be accessed from any page within the site from the link in the footer. 
+  The page states which pages are accessible for users who are not logged in and what can registered and logged-in users can do on each page
+
    <details><summary>About the site Page</summary>
    <img src="static/documentation/ss/about.png" width="500">
    </details>
 
   **Register page**
 
+  This page can be opened from the register button in the navigation bar.
+ New site visitors are simply asked to enter username, password and password confirmation to register for the use of this site. Email field can be left blank as it is optional.
+ Once successfully registered, users will be redirected to the index page and have access to all the pages which are open for registered users.
+
   <details><summary>Register Page</summary>
    <img src="static/documentation/ss/register.png" width="500">
    </details>
 
-
   **Login page**
+
+  Registered and returning users can use the login button to open the login page and supply their username and password to login.
+  On successful login, users will be redirected to the index page with a message to inform them that they logged in successfully and they choose any options provided in the page.
 
    <details><summary>Login Page</summary>
    <img src="static/documentation/ss/sign_in.png" width="500">
    </details>
 
   **Logout page**
-  
+
+  Once a user is logged in, the Login button in the navigation bar will be replaced with the Logout button.
+  Users can simply click this button to log out and confirm to sign out. This will display the home page with a message to inform that the user has successfully logged out.
+
    <details><summary>Logout Page</summary>
    <img src="static/documentation/ss/logout.png" width="500">
    </details>
 
 
-
-
-  ===== More Features ========
-
 ## Testing
 
-### Automated testing
+### Responsiveness 
+
+Throughout the site is tested to ensure all pages are displayed appropriately in all screen sizes
+
+
+### Manual and Automated testing
 
   Both manual and automated testing were carried out to ensure the site works as intended. Testing document can be found here [Link to the testing document](static/documentation/TESTING.md)
 
@@ -372,9 +426,8 @@ Throughout development process of this site, agile development approach was take
 
 ### Known error present:
 
-  * Edit post page does not display erroe message for validating form.
-
-  * Edit post page does not allow a file upload
+  * Edit post page does not display field error message for validating form.
+  While the validation is working and the cursor will be placed in blank field that is required, fiels error messages are not displaying at the top of the page.
 
   
 ###  Validating code 
@@ -409,8 +462,6 @@ Following additional packages are installed to create this site by using pip3 in
   * dj3-cloudinary-storage
   * django-crispy-forms
   * django-allauth
-
-
 
 
 ## Deployment

@@ -5,9 +5,9 @@
 
 <section>
         <div class="ms-2 me-2">
-                {% if create_post_form.errors %}
+                {% if edit_post_form.errors %}
                 <div class="text-center mt-5" role="alert">
-                        {% for key, value in create_post_form.errors.items %}
+                        {% for key, value in edit_post_form.errors.items %}
                         <span class="alert-secondary">{{key}}: {{value.as_text}}</span>
                         {% endfor %}
                 </div>
