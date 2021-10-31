@@ -22,6 +22,7 @@ def about(request):
 
 
 class PostList(generic.ListView):
+    """Displays Post List page"""
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "post_list.html"
@@ -29,7 +30,9 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
-    """Only available for logged-in users"""
+    """
+    Displays Post detail page. Only available for logged-in users
+    """
     @method_decorator(login_required, name='home')
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -97,6 +100,7 @@ class PostLike(View):
 
 @login_required
 def create_post(request):
+    """ Diplays Create a Post page """
     create_post_form = CreatePostForm(request.POST or None, request.FILES)
     if create_post_form.is_valid():
         create_post_form.instance.author = request.user
@@ -142,6 +146,7 @@ def edit_post(request, slug):
 
 
 def delete_post(request, slug):
+    """Displays Delete post page"""
     post = get_object_or_404(Post, slug=slug)
     if request.user != post.author:
         raise Http404
@@ -159,7 +164,7 @@ def delete_post(request, slug):
 
 @login_required
 def edit_profile(request):
-    """ Display the user's profile. """
+    """ Display the user's profile to edit """
     profile = get_object_or_404(Profile, user=request.user)
 
     if request.method == 'POST':
@@ -184,6 +189,7 @@ def edit_profile(request):
 
 
 class ProfileList(LoginRequiredMixin, generic.ListView):
+    """Displays the member list page"""
     model = Profile
     queryset = Profile.objects.all()
     template_name = "profile.html"
@@ -191,6 +197,7 @@ class ProfileList(LoginRequiredMixin, generic.ListView):
 
 
 class ProfileDetail(LoginRequiredMixin, generic.DetailView):
+    """Displays profile detail page"""
     model = Profile
     queryset = Profile.objects.all()
     template_name = 'profile_detail.html'
