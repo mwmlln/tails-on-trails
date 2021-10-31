@@ -59,9 +59,6 @@ footer{
 
 .hero-container {
   height: 80vh;
-  /* Commented out due to Heroku CSS issue */
-  /* background-image: url('{% static "images/dog_in_field.jpg" %}'); */
-  /* background-color: var(--gray-color); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
@@ -124,13 +121,12 @@ textarea {
   width: 100%;
 }
 
-.profile-detail_img {
-  max-height: 30vh;
-  margin: auto;
-}
-
 .messages {
   list-style: none;
+}
+
+.profile-detail-img{
+  height: 100%;
 }
 
 .img-404 {
