@@ -6,23 +6,27 @@
 <div class="col col-md-6 offset-md-3 col-lg-4 offset-lg-4 mt-5">
     <h2 class="text-center mb-3">View Profile</h2>
 
-    <div class="mt-2">
+    <div class="card">
         <!-- The featured image URL goes in the src attribute -->
         {% if "placeholder" in profile.featured_image.url %}
         <img src="{% static 'images/no_user_image.jpg' %}" alt="No photo available image " class="profile-detail_img">
         {% else %}
         <img src=" {{ profile.featured_image.url }}" alt="user's profile image" class="profile-detail_img">
         {% endif %}
-    </div>
-
-    <h3 class="text-center mt-2">{{ profile.user.username | title }}'s Profile</h3>
-    <p class="mt-2"><strong>About me :</strong>  {{ profile.about_me  }}</p>
-    <p class="mt-2"><strong>About my Dog(s) :</strong>  {{ profile.about_dog  }}</p>
-    <p class="mt-2 mb-3"><strong>Favorite place :</strong>  {{ profile.favorite_location  }}</p>
-
-    <div class="text-center mb-3 mt-2">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ profile.user.username | title }}'s Profile</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>About me :</strong>  {{ profile.about_me  }}</li>
+          <li class="list-group-item"><strong>About my Dog(s) :</strong>  {{ profile.about_dog  }}</li>
+          <li class="list-group-item"><strong>Favorite place :</strong>  {{ profile.favorite_location  }}</li>
+        </ul>
+        
+      </div>
+      <div class="text-center mt-3 mb-3">
         <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Back to Profile List</a>
     </div>
+
 
 </div>
 {% endblock %}
