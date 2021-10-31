@@ -341,9 +341,9 @@ Throughout development process of this site, agile development approach was take
 
   * Profile Detail page
 
-    This page can be accessed by the View Profile button in the Members page.
+    This page can be accessed by the View Profile button in the Members page or Post detail page if the user has their post displayed in the page.
     The page includes the image that the user posted and some brief description about them if they opted to enter any fields.
-    Each user’s empty profile is created when they register the site so every registered user has their own profile, but they can leave all the fields blank if they wish.
+    Each user’s empty profile is created when they register to the site so every registered user has their own profile, but they can leave all the fields blank if they wish.
 
     <details><summary>Profile Detail Page</summary>
     <img src="static/documentation/ss/profile_detail.png" width="500">
@@ -381,7 +381,7 @@ Throughout development process of this site, agile development approach was take
  * Login page
 
     Registered and returning users can use the login button to open the login page and supply their username and password to login.
-    On successful login, users will be redirected to the index page with a message to inform them that they logged in successfully and they choose any options provided in the page.
+    On successful login, users will be redirected to the index page with a message to inform them that they logged in successfully and they can choose any options provided in the page.
 
     <details><summary>Login Page</summary>
     <img src="static/documentation/ss/sign_in.png" width="500">
@@ -431,19 +431,27 @@ Throughout the site is tested to ensure all pages are displayed appropriately in
 
 * Heroku failing to load static files.
 
-  After the site was built and some tests were carried out in the test environment, I had switched the DATABASE setting back to Heroku's PostgreSQL for deployment. Deployment was successful but the statis files failed to load. I had tried to switch DEBUG status False and True also, DISABLE_COLLECTSTATIC to 1 to 0 or even removed, however no attempt worked to load static files. 
+  After the site was built and some tests were carried out in the test environment, I had switched the DATABASE setting back to Heroku's PostgreSQL for deployment. Deployment was successful but the statis files failed to load. I had tried to switch DEBUG status False and True also, DISABLE_COLLECTSTATIC to 1 to 0 or even removed, however no attempt worked to load static files. Sean in Tutor support of Code Institute suggested me to use whitenoise library to resolve this common issue on Heroku and installing the library successfully resolved the issue. 
+
+* Edit post page does not display field error message for validating form.
+
+  When post instance was retrieved for editing, removing the required field to make it blank did not show error messages.
+
+  While the validation was working by cursor being placed in blank field which was required and preventing update, the field error messages were not generated or displayed at the top of the page.
+  As a workaround solution, notice for required field is added under the page title and required fields are marked with red * .
+
+  ‘Create a Post’ page was updated the same way to keep the consistency of the site.
+
 
 ### Known error present:
 
-  * Edit post page does not display field error message for validating form.
-  While the validation is working and the cursor will be placed in blank field that is required, fiels error messages are not displaying at the top of the page.
-
+  No known errors present at the time of submission
   
 ###  Validating code 
 
 All the .py files are validated in the PEP8 online validator.
 
-<details><summary>The result screenshot</summary> <img src="static/documentation/ss/forms_pep8.png"></details> 
+<details><summary>The result screenshot of one of the file</summary> <img src="static/documentation/ss/forms_pep8.png"></details> 
 
 At the time of project submission, there were no errors detected in the PEP8 validator.
 
@@ -531,6 +539,8 @@ Heroku Postgres then ensure the changes are reflected in the database
 ## Credit
 
 * Contents
+  
+  Sample posts content is quoted from various website and the link is added in each post where applicable
 
 * Coding
   

@@ -5,28 +5,24 @@
 
 <section>
         <div class="ms-2 me-2">
-                {% if create_post_form.errors %}
-                <div class="text-center mt-5" role="alert">
-                        {% for key, value in create_post_form.errors.items %}
-                        <span class="alert-secondary">{{key}}: {{value.as_text}}</span>
-                        {% endfor %}
-                </div>
-                {% endif %}
-
 
                 <h2 class="text-center mt-5">Create a Post</h2>
                 <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                        <p class="text-center">Required field is marked with <span class="text-danger">*</span></p>
                         <div class="create-post ">
                                 <form method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
 
-                                        <p class="create-label">{{ create_post_form.title.label }} : </p>
+                                        <p class="create-label">{{ create_post_form.title.label }}<span
+                                                        class="text-danger">*</span> : </p>
                                         <p class="create-titile">{{ create_post_form.title }}</p>
-                                        <p class="create-label">{{ create_post_form.location.label }} : </p>
+                                        <p class="create-label">{{ create_post_form.location.label }}<span
+                                                        class="text-danger">*</span> : </p>
                                         <p class="create-titile">{{ create_post_form.location }}</p>
                                         <p class="create-label">{{ create_post_form.excerpt.label }} : </p>
                                         <p class="create-titile">{{ create_post_form.excerpt }}</p>
-                                        <p class="create-label">{{ create_post_form.content.label }} : </p>
+                                        <p class="create-label">{{ create_post_form.content.label }}<span
+                                                        class="text-danger">*</span> : </p>
                                         <p class="create-titile">{{ create_post_form.content }}</p>
                                         <p class="create-label">{{ create_post_form.featured_image.label }} :</p>
                                         <p class="create-titile">{{ create_post_form.featured_image }}</p>

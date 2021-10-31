@@ -5,41 +5,38 @@
 
 <section>
         <div class="ms-2 me-2">
-                {% if edit_post_form.errors %}
-                <div class="text-center mt-5" role="alert">
-                        {% for key, value in edit_post_form.errors.items %}
-                        <span class="alert-secondary">{{key}}: {{value.as_text}}</span>
-                        {% endfor %}
-                </div>
-                {% endif %}
-        
 
                 <h2 class="text-center mt-5">Edit your Post</h2>
                 <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                        <p class="text-center">Required field is marked with <span class="text-danger">*</span></p>
                         <div class="create-post ">
                                 <form method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
 
-                                        <p class="create-label">{{ edit_post_form.title.label }} : </p>
+                                        <p class="create-label">{{ edit_post_form.title.label }}<span
+                                                        class="text-danger">*</span> : </p>
                                         <p class="create-titile">{{ edit_post_form.title }}</p>
-                                        
-                                        <p class="create-label">{{ edit_post_form.location.label }} : </p>
+
+                                        <p class="create-label">{{ edit_post_form.location.label }}<span
+                                                        class="text-danger">*</span> : </p>
                                         <p class="create-titile">{{ edit_post_form.location }}</p>
-                                        
+
                                         <p class="create-label">{{ edit_post_form.excerpt.label }} : </p>
                                         <p class="create-titile">{{ edit_post_form.excerpt }}</p>
-                                        
-                                        <p class="create-label">{{ edit_post_form.content.label }} : </p>
+
+                                        <p class="create-label">{{ edit_post_form.content.label }}<span
+                                                        class="text-danger">*</span> : </p>
                                         <p class="create-titile">{{ edit_post_form.content }}</p>
-                                        
+
                                         <p class="create-label">{{ edit_post_form.featured_image.label }} :</p>
-                                        <p  class="create-titile">{{ edit_post_form.featured_image }}</p>
-                                        
+                                        <p class="create-titile">{{ edit_post_form.featured_image }}</p>
+
                                         <div class="mb-1">
                                                 <p class="create-label">Difficulty of the trail</p>
                                                 <span class="ms-3">{{ edit_post_form.difficulty_hard.label }} : </span>
                                                 <span>{{ edit_post_form.difficulty_hard }}</span>
-                                                <span class="ms-3">{{ edit_post_form.difficulty_moderate.label }} : </span>
+                                                <span class="ms-3">{{ edit_post_form.difficulty_moderate.label }} :
+                                                </span>
                                                 <span>{{ edit_post_form.difficulty_moderate }}</span>
                                                 <span class="ms-3">{{ edit_post_form.difficulty_easy.label }}: </span>
                                                 <span>{{ edit_post_form.difficulty_easy }}</span>
@@ -54,13 +51,15 @@
                                                 <span>{{ edit_post_form.breed_sml }}</span>
                                         </div>
 
-                                        <input type="submit" value="Update" class="btn btn-success bg-gradient mb-5 mt-3 create-btn">
+                                        <input type="submit" value="Update"
+                                                class="btn btn-success bg-gradient mb-5 mt-3 create-btn">
                                 </form>
-                                <p><a class="navbar-brand ms-3" href="{% url 'post_delete' slug=slug %}">Delete this Post</a></p>
+                                <p><a class="navbar-brand ms-3" href="{% url 'post_delete' slug=slug %}">Delete this
+                                                Post</a></p>
                         </div>
                 </div>
         </div>
-       
+
 </section>
 
 {% endblock %}
