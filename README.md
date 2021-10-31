@@ -1,5 +1,34 @@
 # Tails on Trails 
 
+- [Tails on Trails](#tails-on-trails)
+  * [The purpose of this site](#the-purpose-of-this-site)
+  * [User Experience](#user-experience)
+    + [User Goals](#user-goals)
+    + [Site Owners Goals](#site-owners-goals)
+    + [USER STORIES](#user-stories)
+    + [STRATEGY](#strategy)
+    + [SCOPE](#scope)
+    + [Structure](#structure)
+    + [SKELETON](#skeleton)
+  * [SURFACE](#surface)
+    + [Technologies](#technologies)
+  * [Existing Features](#existing-features)
+    + [Elements on every page](#elements-on-every-page)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Testing](#testing)
+    + [Responsiveness](#responsiveness)
+    + [Manual and Automated testing](#manual-and-automated-testing)
+    + [Errors encountered during development](#errors-encountered-during-development)
+    + [Known error present:](#known-error-present-)
+    + [Validating code](#validating-code)
+  * [Setting up Django environment.](#setting-up-django-environment)
+  * [Deployment](#deployment)
+  * [Credit](#credit)
+  * [Acknowledgment](#acknowledgment)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 Tails on Trails is a website to provide registered users to share information on dog-friendly nature trails in Ireland.
 
 [View the live project here.](https://tailsontrails.herokuapp.com/)
@@ -396,6 +425,14 @@ Throughout development process of this site, agile development approach was take
     <img src="static/documentation/ss/logout.png" width="500">
     </details>
 
+### Features Left to Implement
+
+  Due to the short space of time given to complete this project, I was unable to implement following planned features
+
+  * Filter on posts 
+  * Location on map
+  * Add email authentication
+  * Contact page
 
 ## Testing
 
