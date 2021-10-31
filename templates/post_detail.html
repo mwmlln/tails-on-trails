@@ -170,7 +170,7 @@
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        {{ comment.name }}
+                        {{ comment.name | title }}
                         <span class=" text-muted font-weight-normal">
                             <!-- The comment's created date goes here -->
                             {{ comment.created_on }}
@@ -194,7 +194,7 @@
 
 
                 <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <p>Posting as: {{ user.username | title }}</p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
