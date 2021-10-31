@@ -40,7 +40,7 @@
                             <h3 class="card-title">{{ post.title }}</h3>
                             <h5 class="card-title">Location: {{ post.location }}</h5>
                             <p class="card-text">{{ post.excerpt }}</p>
-                            <p class="card-text">Posted by: {{ post.author }}</p>
+                            <p class="card-text">Posted by: {{ post.author | title }}</p>
                             <div class="d-flex justify-content-around">
                                 {% if user.is_authenticated %}
 

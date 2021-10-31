@@ -9,9 +9,9 @@
     <div class="card">
         <!-- The featured image URL goes in the src attribute -->
         {% if "placeholder" in profile.featured_image.url %}
-        <img src="{% static 'images/no_user_image.jpg' %}" alt="No photo available image " class="profile-detail-img">
+        <img src="{% static 'images/no_user_image.jpg' %}" alt="No photo available image " class="card-img-top">
         {% else %}
-        <img src=" {{ profile.featured_image.url }}" alt="user's profile image" class="profile-detail-img">
+        <img src=" {{ profile.featured_image.url }}" alt="user's profile image" class="card-img-top">
         {% endif %}
         <div class="card-body">
           <h5 class="card-title text-center">{{ profile.user.username | title }}'s Profile</h5>
