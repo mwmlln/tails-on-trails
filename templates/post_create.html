@@ -4,6 +4,20 @@
 {% block content %}
 
 <section>
+        <div class="alert alert-secondary alert-dismissible" role="alert">
+
+                <ul class="messages">
+                        {% if create_post_form.errors %}
+                        {% for key, value in create_post_form.errors.items %}
+                        <li class="{{ message.tags }} d-inline me-3">{{key | title }}: {{value.as_text}}</li>
+                        {% endfor %}
+                        {% endif %}
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        </div>
+
+
         <div class="ms-2 me-2">
 
                 <h2 class="text-center mt-5">Create a Post</h2>
