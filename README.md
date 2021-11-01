@@ -480,6 +480,10 @@ Throughout the site is tested to ensure all pages are displayed appropriately in
   ‘Create a Post’ page was updated the same way to keep the consistency of the site.
   However this approach also removed the error message when user entered the tittle that was already used. After some research and trying few different ways, I have realized that rendering was missing in else statement when the validation is_valid was failed. By rendering the form in else condition this issue was resolved. 
 
+* Create and edit post validation issues with capital cases.
+  Validation was working for exact match case sensitive matches but threw errors when same title with different capital cases are entered. After hours with Tutor support with few support staff, Sheryl finally suggested that the issue was the cause of the error. I then finally found the solution on [stackoverflow]( https://stackoverflow.com/questions/14115046/how-to-make-case-insensitive-queries-with-django-models) using __iexact for query.
+
+
 
 ### Known error present:
 

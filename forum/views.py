@@ -113,8 +113,7 @@ def create_post(request):
     return render(
                 request,
                 'post_create.html',
-                context={
-                    'create_post_form': create_post_form}
+                context={'create_post_form': create_post_form}
                 )
 
 
@@ -125,30 +124,21 @@ def edit_post(request, slug):
     if request.user != post.author:
         raise Http404
 
-    if request.method == 'POST':
-        edit_post_form = EditPostForm(
-                            request.POST or None,
-                            request.FILES,
-                            instance=post)
-        if edit_post_form.is_valid():
-            edit_post_form.save()
-            messages.success(request, 'Your post is successfully updated')
-            return redirect('posts')
-        else:
-            return render(
-                        request,
-                        'post_edit.html',
-                        context={
-                                'edit_post_form': edit_post_form,
-                                'slug': slug
-                                }
-                        )
-    else:
-        edit_post_form = EditPostForm(instance=post)
-    template = 'post_edit.html'
-    context = {'edit_post_form': edit_post_form, 'slug': slug}
-
-    return render(request, template, context)
+    edit_post_form = EditPostForm(
+                                data=(request.POST or None),
+                                files=(request.FILES or None),
+                                instance=post,
+                                )
+    if edit_post_form.is_valid():
+        edit_post_form.save()
+        messages.success(request, 'Your post is successfully updated')
+        return redirect('posts')
+    return render(
+                request, 'post_edit.html',
+                context={
+                    'edit_post_form': edit_post_form,
+                    'slug': slug},
+                )
 
 
 def delete_post(request, slug):

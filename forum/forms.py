@@ -46,7 +46,7 @@ class CreatePostForm(forms.ModelForm):
         """checks if title entered exists already"""
         cleaned_data = super().clean()
         title = cleaned_data.get('title')
-        is_exists = Post.objects.filter(title=title).first()
+        is_exists = Post.objects.filter(title__iexact=title).first()
         if is_exists:
             raise validators.ValidationError(
                                             'This title already exists.'
@@ -80,6 +80,17 @@ class EditPostForm(forms.ModelForm):
             'featured_image', 'content', 'difficulty_hard',
             'difficulty_moderate', 'difficulty_easy',
             'breed_big', 'breed_mid', 'breed_sml')
+
+    def clean_title(self):
+        """checks if title entered exists already"""
+        cleaned_data = super().clean()
+        title = cleaned_data.get('title')
+        is_exists = Post.objects.filter(title__iexact=title).first()
+        if is_exists:
+            raise validators.ValidationError(
+                                            'This title already exists.'
+                                            'Please enter another one.')
+        return title
 
 
 class DeletePostForm(forms.ModelForm):
