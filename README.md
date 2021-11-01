@@ -478,6 +478,7 @@ Throughout the site is tested to ensure all pages are displayed appropriately in
   As a workaround solution, notice for required field is added under the page title and required fields are marked with red * .
 
   ‘Create a Post’ page was updated the same way to keep the consistency of the site.
+  However this approach also removed the error message when user entered the tittle that was already used. After some research and trying few different ways, I have realized that rendering was missing in else statement when the validation is_valid was failed. By rendering the form in else condition this issue was resolved. 
 
 
 ### Known error present:
