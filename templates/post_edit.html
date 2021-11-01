@@ -5,27 +5,19 @@
 
 <section>
 
-        <div class="alert alert-secondary alert-dismissible" role="alert">
-                {% if edit_post_form.errors %}
+
+        {% if edit_post_form.errors or messages %}
+        <div class="alert alert-secondary alert-dismissible mb-0 pb-0" role="alert">
                 <ul class="messages">
-                        
+
                         {% for key, value in edit_post_form.errors.items %}
                         <li class="{{ message.tags }} d-inline me-3">{{key | title }}: {{value.as_text}}</li>
                         {% endfor %}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </ul>
-                {% endif %}
-                {% if messages %}
-                <ul class="messages">
-                        {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                                {% endfor %}
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                {% endif %}
-                
-
         </div>
+        {% endif %}
+
         <div class="ms-2 me-2">
 
                 <h2 class="text-center mt-5">Edit your Post</h2>

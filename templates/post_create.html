@@ -4,28 +4,19 @@
 {% block content %}
 
 <section>
+        {% if create_post_form.errors or  messages %}
         <div class="alert alert-secondary alert-dismissible" role="alert">
-
                 <ul class="messages">
-                        {% if create_post_form.errors %}
+                       
                         {% for key, value in create_post_form.errors.items %}
                         <li class="{{ message.tags }} d-inline me-3">{{key | title }}: {{value.as_text}}</li>
                         {% endfor %}
-                        {% endif %}
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
                 </ul>
-                <ul class="messages">
-                        {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-
         </div>
-
+        {% endif %}
 
         <div class="ms-2 me-2">
 

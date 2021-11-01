@@ -135,12 +135,13 @@ def edit_post(request, slug):
             messages.success(request, 'Your post is successfully updated')
             return redirect('posts')
         else:
-            messages.error(request, 'Please ensure to enter required fields')
             return render(
                         request,
                         'post_edit.html',
                         context={
-                        'edit_post_form': edit_post_form, 'slug': slug}
+                                'edit_post_form': edit_post_form,
+                                'slug': slug
+                                }
                         )
     else:
         edit_post_form = EditPostForm(instance=post)
