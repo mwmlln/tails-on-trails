@@ -6,15 +6,24 @@
 <section>
 
         <div class="alert alert-secondary alert-dismissible" role="alert">
-
+                {% if edit_post_form.errors %}
                 <ul class="messages">
-                        {% if edit_post_form.errors %}
+                        
                         {% for key, value in edit_post_form.errors.items %}
                         <li class="{{ message.tags }} d-inline me-3">{{key | title }}: {{value.as_text}}</li>
                         {% endfor %}
-                        {% endif %}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </ul>
+                {% endif %}
+                {% if messages %}
+                <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                                {% endfor %}
                 </ul>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {% endif %}
+                
 
         </div>
         <div class="ms-2 me-2">
