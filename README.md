@@ -31,7 +31,7 @@
 
 Tails on Trails is a website to provide registered users to share information on dog-friendly nature trails in Ireland.
 
-[View the live project here.](https://tailsontrails.herokuapp.com/)
+[View the live project here.](https://tailsontrails.onrender.com)
 
 <img src="static/images/mockup1.png" width="500">
 
