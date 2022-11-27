@@ -34,12 +34,9 @@ DEBUG = False
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-ALLOWED_HOSTS = ['tailsontrails.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = ['tailsontrails.herokuapp.com', 'localhost']
 
-# Add Render.com URL to allowed hosts
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 # Setting to accomodate testing on local DB
 development = os.environ.get('DEVELOPMENT', False)
@@ -48,6 +45,11 @@ if development:
     ALLOWED_HOSTS = ['localhost']
 else:
     ALLOWED_HOSTS = ['tailsontrails.herokuapp.com']
+
+# Add Render.com URL to allowed hosts
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
